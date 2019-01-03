@@ -1,12 +1,41 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/wangming/wangming",
+    "pages/wangming_shangbiao/wangming_shangbiao",
+    "pages/shuzi_shangbiao/shuzi_shangbiao",
+    "pages/chibang/chibang",
+    "pages/shuzi_xiabiao/shuzi_xiabiao",
+    "pages/find/find"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff4f41",
-    "navigationBarTitleText": "精选网名",
+    "navigationBarBackgroundColor": "#f44c66",
+    "navigationBarTitleText": "爱网名",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#f44c66",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/ic_home.png",
+        "selectedIconPath": "images/ic_home_active.png",
+        "text": "网名列表"
+      },
+      {
+        "pagePath": "pages/wangming/wangming",
+        "iconPath": "images/ic_name.png",
+        "selectedIconPath": "images/ic_name_active.png",
+        "text": "网名生成"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find_active.png",
+        "text": "发现更多"
+      }
+    ]
   }
 }

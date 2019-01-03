@@ -1,0 +1,12 @@
+Page{
+    background: #eee;
+}
+.list{
+    background: #fff;
+    padding:30rpx;
+    border-radius:20rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.list .sp{color: #666;font-size: 30rpx;}
+.hr{height: 30rpx;}

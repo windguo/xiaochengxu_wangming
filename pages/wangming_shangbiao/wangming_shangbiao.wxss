@@ -1,0 +1,25 @@
+
+Page{
+    background:#eee;
+}
+.container{font-size: 36rpx;margin-top:80rpx;background: none;}
+.container input{
+    margin:30rpx 0;
+    background: #fff;
+    padding:30rpx;
+    border-radius: 20rpx;
+}
+.container h2 .s{font-size:32rpx;margin-left:20rpx;color: #c00;}
+.container button{margin-top:50rpx;}
+.resultView{
+    margin-top:50rpx;
+    text-align: center;
+    background: #fffff0;
+    padding:50rpx;
+}
+.resultView h2{display: block;}
+.re{margin: 50rpx 0;color: brown}
+.btns button{
+    margin:0px 10rpx;
+    font-size: 36rpx;
+}

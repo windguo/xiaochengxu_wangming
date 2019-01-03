@@ -6,3 +6,5 @@
   box-sizing: border-box;
   background: #f4f4f4;
 } 
+.mg{margin:0 40rpx;}
+.ads{margin:30rpx 0}
