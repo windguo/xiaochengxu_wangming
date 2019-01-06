@@ -1,2 +1,30 @@
-<!--pages/chibang/chibang.wxml-->
-<text>pages/chibang/chibang.wxml</text>
+<view class="container">
+    <view class="mg">
+        <h2>请输入您的昵称</h2>
+        <input bindinput="inputNameFn" focus="true" value="" type="text" placeholder='输入您的昵称' />
+        <h2>请选择翅膀样式</h2>
+        <picker class="pickers" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                {{array[index]}}
+            </view>
+        </picker>
+        <button bindtap="creatName" type="warn">立即生成</button>
+        <view class="ads">
+            <ad unit-id="adunit-3fb4b0a48b56b0d7"></ad>
+        </view>
+        <view wx:if="{{result}}" class="resultView">
+            <h2>查看生成结果</h2>
+            <view class="re">
+                {{result}}
+            </view>
+            <view class="btns">
+                <button type="primary" size="mini" bindtap="copyTBL" data-text="{{result}}">
+                    点击复制
+                </button>
+                <button type="default" size="mini" open-type="share">
+                    分享好友
+                </button>
+            </view>
+        </view>
+    </view>
+</view>
