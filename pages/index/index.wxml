@@ -1,24 +1,77 @@
-<view class="container">
+<view class="j_header" style="height:{{CustomBar}}px;">
+	<button class="j-left icon icon-share" open-type='share' plain="true" hover-class="none"></button>
+	<view bindtap='searchPage' class="search"  style="top:{{titleTop}}px">
+		<view class="icon icon-search"></view>
+		搜索网名
+	</view>
+</view>
+<view style="height:{{CustomBar}}px;"></view>
+<view class="container bgeee">
+	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">
+    <image class="addGif" src='../../images/add.png' background-size="cover"></image>
+  </view>
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<swiper-item wx:for="{{contentArrayAd}}" wx:for-index="i" wx:for-item="item">
+					<navigator target="miniProgram" open-type="navigate" app-id="{{item.alt}}" extra-data="" version="release"
+							path="/pages{{item.url}}" hover-class="navigator-hover">
+							<image class="img" src="{{item.picurl}}" mode='scaleToFill' />
+					</navigator>
+			</swiper-item>
+    </swiper>
+		<view class="tip">欢迎添加客服：fengzhang201909 邀请进微信群</view>
+    <view class="node-list">
+        <block wx:for="{{expertList}}">
+            <navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
+                {{item.classname}}
+            </navigator>
+        </block>
+    </view>
+		<view class="ads">
+        <ad unit-id="adunit-21a62c6200a47124"></ad>
+    </view>
+		<h2>【爱头像】头像精选</h2>
+  <view class="layout_vertical">
+    <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item">
+      <navigator path='/pages/result/result?url={{item.pic}}' target="miniProgram" open-type="navigate" app-id="wxb2e976cef0f6facb" extra-data="" version="release">
+        <image bindtap="s" style="width:315rpx;height:315rpx;border-radius:10rpx;" src="{{item.pic}}"></image>
+      </navigator>
+    </view>
+  </view>
+	<view class="ads">
+        <ad unit-id="adunit-21a62c6200a47124"></ad>
+    </view>
+		<h2>【爱爆笑】段子精选</h2>
+    <view class="layout_vertical">
+        <view wx:for="{{contentArrayBaoxiao}}" class="baoxiaoListViews" wx:for-index="i" wx:for-item="item">
+            <navigator target="miniProgram" open-type="navigate" app-id="wx8041cab51c6ffcff" extra-data="" version="release"
+                path="/pages/duanzi_detail/duanzi_detail?classid={{item.classid}}&id={{item.id}}" hover-class="navigator-hover">
+                <h3>{{item.smalltext}}</h3>
+            </navigator>
+        </view>
+    </view>
+</view>
+<!-- <view class="container">
+	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">
+        <image class="addGif" src='../../images/add.png' background-size="cover"></image>
+    </view>
   <view>
     <scroll-view scroll-with-animation="true" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
     <view  wx:for="{{expertList}}" wx:for-index="idx" wx:for-item="item" class="tab-item {{currentTab==idx?'active':''}}" data-current="{{idx}}" bindtap="swichNav">{{item.classname}}</view>
   </scroll-view>
   </view>
+	<view class="adaaas">
+		<ad unit-id="adunit-21a62c6200a47124"></ad>
+	</view>
   <swiper class="tab-content" current="{{currentTab}}"  duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
-    <block wx:if="{{currentTab==3}}">
-      <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
+    <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
         <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
           <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item">
-            <view bindtap="copyTBL" data-text="{{item.title}}" style="margin-bottom:20rpx;">{{item.title}}</view>
-            <view bindtap="copyTBL" data-text="{{item.ftitle}}">{{item.ftitle}}</view>
+					<navigator url="../detail/detail?title={{item.title}}&ftitle={{item.ftitle}}" hover-class="navigator-hover">
+						<view>{{item.title}}</view>
+            <view style="margin-top:20rpx;">{{item.ftitle}}</view>
+					</navigator>
           </view>
         </scroll-view>
       </swiper-item>
-    </block>
-    <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items" >
-      <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
-        <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item" bindtap="copyTBL" data-text="{{item.title}}">{{item.title}}</view>
-      </scroll-view>
-    </swiper-item>
   </swiper>
-</view>
+</view> -->

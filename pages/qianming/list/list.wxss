@@ -1,0 +1,4 @@
+.listViews{background: #fff;margin:40rpx;border-radius:20rpx;padding:40rpx;line-height: 60rpx;color: #666}
+.listViews h2{padding-bottom:20rpx;display: block;color:#999;}
+.img{height:100rpx;width: 100%}
+.scoll-h{height: 100%;}

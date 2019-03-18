@@ -1,0 +1,10 @@
+Page{background:#f4f4f4;}
+.h1{padding:50rpx;background: #fff;margin:40rpx;border-radius: 20rpx;line-height: 60rpx;font-size: 40rpx;color: orangered;background:#fffff0;border:1rpx solid orangered}
+.h1:after{content: '点击文字即可复制哦';font-size: 30rpx;color: #999;}
+.h2{text-align: center;padding:40rpx 0 30rpx 0;display: flex;justify-content: space-between;margin:0 30rpx;}
+.listViews{padding:40rpx;margin:20rpx 40rpx;border-radius: 20rpx;background: #fff;font-weight: 300;border:1rpx solid #eee;line-height: 60rpx;}
+.returnHome{color: #999;}
+
+swiper{height:300rpx;font-weight: 300}
+.swiper_item{text-align:center;font-size:50rpx;line-height:140rpx;height:300rpx;}
+swiper .img{height:300rpx;width:100%}

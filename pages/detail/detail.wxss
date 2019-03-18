@@ -1,0 +1,34 @@
+Page{background:#f4f4f4;}
+.h1{padding:60rpx;text-align: center;background: #fff;margin:40rpx;border-radius: 20rpx;line-height: 100rpx;font-size: 50rpx;color: orangered;background:#fffff0;border:1rpx solid orangered}
+
+.h2{text-align: center;padding:40rpx 0 30rpx 0;display: flex;justify-content: space-between;margin:0 30rpx;}
+.node-list{
+    display: flex;
+    flex-flow: wrap;
+    margin:30rpx 0 0rpx 35rpx;
+}
+.node-item {
+    width: 38%;
+    background: #ffffff;
+    border-radius: 20rpx;
+		line-height: 60rpx;
+    color:#333;
+		padding:30rpx;
+    text-align: center;
+    margin-right: 25rpx;
+    margin-bottom: 40rpx;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.returnHome{color: #999;}
+
+swiper{height:300rpx;font-weight: 300}
+.swiper_item{text-align:center;font-size:50rpx;line-height:140rpx;height:300rpx;}
+swiper .img{height:300rpx;width:100%}
+.shares{
+	margin:20rpx 40rpx 50rpx 40rpx;
+	align-items: center;
+	display: flex;
+	justify-content: last baseline;
+}
+.shares .onclick{flex:1}
+.shares .b{flex: 1}

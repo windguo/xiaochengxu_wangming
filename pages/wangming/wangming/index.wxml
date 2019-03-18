@@ -1,0 +1,51 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container">
+  <view class="ads">
+    <ad unit-id="adunit-c9910fbaf5038f8a"></ad>
+  </view>
+  <view class="mg">
+    <navigator url='../chibang/chibang'>
+      <view class="list">
+        <text class="t">翅膀艺术网名生成</text>
+        <span class="sp">示例:༺天使༻</span>
+      </view>
+    </navigator>
+    <view class="hr"></view>
+    <navigator url='../wangming_shangbiao/wangming_shangbiao'>
+      <view class="list">
+        <text class="t">字母数字上标生成</text>
+        <span class="sp">示例:abcᵃᵇ¹²³</span>
+      </view>
+    </navigator>
+    <view class="hr"></view>
+    <navigator url='../shuzi_shangbiao/shuzi_shangbiao'>
+      <view class="list">
+        <text class="t">数字上标生成</text>
+        <span class="sp">示例:abc¹²³</span>
+      </view>
+    </navigator>
+    <view class="hr"></view>
+    <navigator url='../shuzi_xiabiao/shuzi_xiabiao'>
+      <view class="list">
+        <text class="t">数字下标生成</text>
+        <span class="sp">示例:abc₁₂₃</span>
+      </view>
+    </navigator>
+    <view class="hr"></view>
+    <navigator url='../tel_shangbiao/tel_shangbiao'>
+      <view class="list">
+        <text class="t">电话上标生成</text>
+        <span class="sp">示例:abcᵀᴱᴸ¹²³</span>
+      </view>
+    </navigator>
+    <view class="hr"></view>
+    <navigator url='../tel_xiabiao/tel_xiabiao'>
+      <view class="list">
+        <text class="t">电话下标生成</text>
+        <span class="sp">示例:abcᵀᴱᴸ₁₂₃</span>
+      </view>
+    </navigator>
+  </view>
+</view>

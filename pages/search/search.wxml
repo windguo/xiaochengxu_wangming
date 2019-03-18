@@ -1,0 +1,57 @@
+<view class="j_header" style="height:{{CustomBar}}px;">
+	<view style="margin-top:{{titleTop+10}}px" class="icon icon-back" bindtap="_back"></view>
+	<view class="j-title" style="top:{{titleTop+10}}px">搜索网名</view>
+</view>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+	<form bindsubmit="searchSubmit">
+		<view class="search">
+			<input name="keyword" bindinput="bindinput" placeholder-class="placeholder-class" focus='{{focus}}' value="{{keyword}}" placeholder='关键字' />
+			<view bindtap='delKeywords' class="del">
+				<view hidden="{{keywordFlag}}" class="icon icon-close"></view>
+			</view>
+			<button form-type="submit" type='warn' class="searchBtn">点击搜索</button>
+		</view>
+	</form>
+	<view class="keyStyle" wx:if="{{keywordsArrayFlag}}">
+		<h2>大家都在搜:</h2>
+		<block wx:for="{{keywordsArray}}" wx:for-index="i" wx:for-item="item">
+			<navigator redirect class="k" url="../search/search?keyword={{item.title}}&state=2">
+				{{item.title}}
+			</navigator>
+		</block>
+	</view>
+  <view wx:else>
+		<scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+					<block wx:if="{{resu}}">
+						<h2 style="text-align:center;margin-top:200rpx;display:block;color:#999;">{{resu}}</h2>
+					</block>
+					<view wx:else>
+					<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
+					<view class="node-list">
+						<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+							<view wx:if="{{i == 20}}">
+									<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
+							</view>
+							<view wx:if="{{i == 40}}">
+									<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
+							</view>
+							<view wx:if="{{i == 60}}">
+									<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
+							</view>
+							<view wx:if="{{i == 80}}">
+									<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
+							</view>
+							<view class="node-item">
+								<navigator url="../detail/detail?id={{item.id}}">
+									<view>{{item.title}}</view>
+									<view hidden="{{Boolean(item.ftitle) ? true : false}}" style="margin-top:20rpx;">{{item.ftitle}}</view>
+							</navigator>
+								</view>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+	</view>
+</view>

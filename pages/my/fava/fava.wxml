@@ -1,0 +1,24 @@
+<view class="container bgeee">
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+      <view class="ads">
+					<ad unit-id="adunit-e9062f273a3d1091"></ad>
+			</view>
+			<view class="nodata" hidden='{{dataHidden}}'>暂未收藏</view>
+      <view class="layout_vertical">
+				<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+					<block wx:if="{{i == 16}}">
+						<ad class="ads" unit-id="adunit-e9062f273a3d1091"></ad>
+					</block>
+					<block wx:if="{{i == 32}}">
+						<ad class="ads" unit-id="adunit-e9062f273a3d1091"></ad>
+					</block>
+					<view class="listViews">
+						<navigator url='../../result/result?url={{item.realpicurl}}'>
+							<image bindtap="s" style="width:315rpx;height:315rpx;border-radius:10rpx;" src="{{item.realpicurl}}"></image>
+						</navigator>
+						<button class="remove {{item.picurl}}" data-idx='{{i}}' bindtap="removeFavas" data-id="{{item.realpicurl}}">移除收藏</button>
+					</view>
+				</block>
+			</view>
+    </scroll-view>
+</view>

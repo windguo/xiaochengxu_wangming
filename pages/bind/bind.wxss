@@ -1,0 +1,22 @@
+.formDontain{
+	margin: 50rpx;
+}
+.formDontain h2{
+	font-size:50rpx;
+	text-align: center;
+	display: block;
+	margin:60rpx 0;
+}
+.formDontain .text{
+	color:#999;
+	font-size: 30rpx;
+	margin-bottom:50rpx;
+}
+.formDontain input{
+	height:50rpx;
+	line-height: 50rpx;
+	background: #fff;
+	border-radius: 20rpx;
+	padding: 40rpx;
+	margin-bottom:40rpx;
+}

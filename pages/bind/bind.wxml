@@ -1,0 +1,18 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container">
+	<form class="formDontain" bindsubmit="confirmM">
+		<h2>绑定会员系统</h2>
+		<view class="text">
+			<view>请输入在<span style="color:red">http://www.wangming.org.cn</span>网站的会员用户名和密码。如果无用户名，可自行输入用户名和密码，系统会自动帮您注册。</view>
+		</view>
+		
+		<input bindinput='username' name="username" type='text' placeholder="请输入用户名" />
+		<input bindinput='password' name="password" type='password' placeholder="请输入密码" />
+		<view class="text">
+			<view>绑定后即可使用微信登录，无需再次输入用户名和密码</view>
+		</view>
+		<button form-type="submit" type="warn">立即注册会员并绑定</button>
+	</form>
+</view>

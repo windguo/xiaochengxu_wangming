@@ -1,0 +1,23 @@
+.listViews{background: #fff;margin:40rpx;border-radius:20rpx;text-align: center;padding:30rpx;color: #666;}
+.listViews h2{padding-bottom:20rpx;display: block;color:#999;}
+.img{height:100rpx;width: 100%}
+.scoll-h{height: 100%;}
+.txt{padding:40rpx;text-align: center;font-size: 30rpx;background: #fffff0;}
+.txt span{color:#c00;padding:0 20rpx;font-size:30rpx;}
+
+.search{
+	display: flex;
+	margin:20rpx 20rpx 40rpx;
+	justify-content: space-around;
+}
+.search input{
+	flex:2;
+	border-radius: 15rpx;
+	border:1rpx solid #ccc;
+	background: #fffff0;
+	padding:30rpx 40rpx;
+}
+.search button{
+	flex: 1;
+	margin-left:20rpx;
+}

@@ -1,0 +1,49 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+        <view class="ads">
+            <ad unit-id="adunit-21a62c6200a47124"></ad>
+        </view>
+        <view class="node-list">
+					<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+            <view wx:if="{{i == 20}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 40}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 60}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 80}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+            <view class="node-item">
+							<navigator redirect class="top" url="../detail/detail?id={{item.id}}">
+								<view class='t'>{{item.title}}</view>
+								<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+							</navigator>
+							<view class="bottom">
+								<view class="onclick"><span>{{item.onclick}}</span>℃</view>
+								<navigator redirect url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+									<view class="username">{{item.username}}</view>
+								</navigator>
+								<!-- <view class="icon icon-favor_light "></view>
+								<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
+							</view>
+						</view>
+					</block>
+				</view>
+				<button open-type='share' type='warn' class="sharetoFrinend">分享给好友</button>
+    </scroll-view>
+</view>

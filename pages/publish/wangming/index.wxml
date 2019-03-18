@@ -1,0 +1,19 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container">
+	<form bindsubmit="formSubmit">
+		<view class="publishBox">
+			<view class="classs">
+			<picker bindchange="bindPickerChange" name="classid" value="{{objectArray[index].classid}}" range-key="classname" range="{{objectArray}}">
+			<view class="picker">
+				选择分类：{{objectArray[index].classname}}
+			</view>
+		</picker>
+		</view>
+			<input class="title" focus='true' name="title" placeholder="请输入网名" />
+			<input class="title" hidden='{{ftitleFlag}}' name="ftitle" placeholder="请输入网名" />
+		</view>
+		<button class="button" type='warn' form-type="submit">立即发布网名</button>
+	</form>
+</view>

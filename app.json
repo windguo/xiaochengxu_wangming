@@ -1,41 +1,72 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/wangming/wangming",
-    "pages/wangming_shangbiao/wangming_shangbiao",
-    "pages/shuzi_shangbiao/shuzi_shangbiao",
-    "pages/chibang/chibang",
-    "pages/shuzi_xiabiao/shuzi_xiabiao",
-    "pages/find/find"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f44c66",
-    "navigationBarTitleText": "爱网名",
-    "navigationBarTextStyle": "white"
-  },
-  "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#f44c66",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/ic_home.png",
-        "selectedIconPath": "images/ic_home_active.png",
-        "text": "网名列表"
-      },
-      {
-        "pagePath": "pages/wangming/wangming",
-        "iconPath": "images/ic_name.png",
-        "selectedIconPath": "images/ic_name_active.png",
-        "text": "网名生成"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "iconPath": "images/find.png",
-        "selectedIconPath": "images/find_active.png",
-        "text": "发现更多"
-      }
-    ]
-  }
+	"pages": [
+		"pages/index/index",
+		"pages/login/login",
+		"pages/loginout/loginout",
+		"pages/bind/bind",
+		"pages/wangming/wangming/index",
+		"pages/wangming/wangming_shangbiao/wangming_shangbiao",
+		"pages/wangming/shuzi_shangbiao/shuzi_shangbiao",
+		"pages/wangming/chibang/chibang",
+		"pages/wangming/shuzi_xiabiao/shuzi_xiabiao",
+		"pages/list/list",
+		"pages/search/search",
+		"pages/qianming/index/index",
+		"pages/qianming/list/list",
+		"pages/qianming/detail/detail",
+		"pages/qianming/search/search",
+		"pages/detail/detail",
+		"pages/my/index/index",
+		"pages/my/about/about",
+		"pages/my/fava/fava",
+		"pages/my/publish/publish",
+		"pages/publish/wangming/index"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationStyle": "custom",
+		"navigationBarTitleText": "网名大全",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#f44c66",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "images/ic_home.png",
+				"selectedIconPath": "images/ic_home_active.png",
+				"text": "网名首页"
+			},
+			{
+				"pagePath": "pages/wangming/wangming/index",
+				"iconPath": "images/ic_name.png",
+				"selectedIconPath": "images/ic_name_active.png",
+				"text": "网名生成"
+			},{
+				"pagePath": "pages/qianming/index/index",
+				"iconPath": "images/ic_shuoshuo.png",
+				"selectedIconPath": "images/ic_shuoshuo_active.png",
+				"text": "签名说说"
+			},
+			{
+				"pagePath": "pages/my/index/index",
+				"iconPath": "images/my_light.png",
+				"selectedIconPath": "images/my_light_active.png",
+				"text": "我的"
+			}
+		]
+	},
+	"navigateToMiniProgramAppIdList": [
+		"wx4e64b51d8fa37436",
+		"wx8041cab51c6ffcff",
+		"wx711d9992cb89aa05",
+		"wxb2e976cef0f6facb",
+		"wx1cafe58f80e23d53",
+		"wxefdba725010ee759",
+		"wx13bf832b742ac52d",
+		"wxa53e3cf622d861ad",
+		"wx6423efa660c6d5ee"
+	]
 }

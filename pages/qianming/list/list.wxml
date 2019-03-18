@@ -1,0 +1,38 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+        <view class="ads">
+            <ad unit-id="adunit-21a62c6200a47124"></ad>
+        </view>
+        <view wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+            <view wx:if="{{i == 15}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 30}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 45}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+						<view wx:if="{{i == 60}}">
+                <view class="ads">
+                    <ad unit-id="adunit-21a62c6200a47124"></ad>
+                </view>
+            </view>
+            <view class="listViews">
+                <navigator url="../detail/detail?classid={{item.classid}}&id={{item.id}}" hover-class="navigator-hover">
+						<view>{{item.title}}</view>
+            <view style="margin-top:20rpx;">{{item.ftitle}}</view>
+					</navigator>
+            </view>
+        </view>
+    </scroll-view>
+</view>

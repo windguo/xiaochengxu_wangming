@@ -1,0 +1,50 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<swiper-item wx:for="{{contentArrayAd}}" wx:for-index="i" wx:for-item="item">
+					<navigator target="miniProgram" open-type="navigate" app-id="{{item.alt}}" extra-data="" version="release"
+							path="/pages{{item.url}}" hover-class="navigator-hover">
+							<image class="img" src="{{item.picurl}}" mode='scaleToFill' />
+					</navigator>
+			</swiper-item>
+    </swiper>
+	<view class="h1">
+		<view bindtap="copyTBL" data-text="{{title}}">{{title}}</view>
+		<view bindtap="copyTBL" data-text="{{ftitle}}">{{ftitle}}</view>
+	</view>
+	<ad unit-id="adunit-ec965aa6605af62d"></ad>
+	<view class="h2">
+		<h2>签名说说推荐</h2>
+		<view class="returnHome" bindtap='returnHome'>返回首页</view>
+	</view>
+	<view wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+		<view wx:if="{{i == 15}}">
+					<view class="ads">
+							<ad unit-id="adunit-21a62c6200a47124"></ad>
+					</view>
+			</view>
+			<view wx:if="{{i == 30}}">
+					<view class="ads">
+							<ad unit-id="adunit-21a62c6200a47124"></ad>
+					</view>
+			</view>
+			<view wx:if="{{i == 45}}">
+					<view class="ads">
+							<ad unit-id="adunit-21a62c6200a47124"></ad>
+					</view>
+			</view>
+			<view wx:if="{{i == 60}}">
+					<view class="ads">
+							<ad unit-id="adunit-21a62c6200a47124"></ad>
+					</view>
+			</view>
+		<view class="listViews">
+			<navigator redirect url="../detail/detail?classid={{item.classid}}&id={{item.id}}" hover-class="navigator-hover">
+					<view>{{item.title}}</view>
+					<view style="margin-top:20rpx;">{{item.ftitle}}</view>
+				</navigator>
+			</view>
+	</view>
+</view>

@@ -1,0 +1,29 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container">
+    <view class="ads">
+        <ad unit-id="adunit-c9910fbaf5038f8a"></ad>
+    </view>
+    <view class="mg">
+        <h2>请输入您的网名</h2>
+        <input bindinput="inputNameFn" focus="true" value="" type="text" placeholder='输入您的网名' />
+        <h2>请输入上标<span class="s">只支持英文大小写和数字</span></h2>
+        <input bindinput="inputFuhaoFn" placeholder='输入右上角显示的字母或者数字' />
+        <button bindtap="creatName" type="warn">立即生成</button>
+    </view>
+        <view wx:if="{{result}}" class="resultView">
+            <h2>查看生成结果(点击下面名字复制)</h2>
+            <view class="re">
+                {{result}}
+            </view>
+            <view class="btns">
+                <button type="primary" size="mini" bindtap="copyTBL" data-text="{{result}}">
+                    点击复制
+                </button>
+                <button type="default" size="mini" open-type="share">
+                    分享好友
+                </button>
+            </view>
+        </view>
+</view>

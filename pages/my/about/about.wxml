@@ -1,0 +1,16 @@
+<view class="container">
+    <header class="header">
+      <image class="icon" src="/images/icon.png" background-size="cover" />
+    </header>
+		<icon bindtap="_back" class="icon icon-back">返回</icon>
+    <view class="intro">
+        包括男生、女生、情侣、霸气网名等40种分类的网名供大家选择。字母、数字、电话上下标网名生成或者翅膀网名生成。欢迎使用多提宝贵意见。
+    </view>
+    <view class='help'>
+        客服:
+				<text>fengzhang201909</text> (密码：网名生成)
+				<text style='color:#c00;margin-left:80rpx;' bindtap="copyTBL" data-text="fengzhang201909">
+					点击复制微信号
+				</text>
+    </view>
+</view>

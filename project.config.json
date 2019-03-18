@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wxa12f1b4e608253f8",
-	"projectname": "%E7%B2%BE%E9%80%89%E7%BD%91%E5%90%8D",
+	"projectname": "%E7%BD%91%E5%90%8D%E7%94%9F%E6%88%90",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -27,13 +27,93 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 10,
+			"list": [
+				{
+					"id": 0,
+					"name": "id=120058",
+					"pathName": "pages/detail/detail",
+					"query": "id= 120005"
+				},
+				{
+					"id": -1,
+					"name": "签名首页",
+					"pathName": "pages/qianming/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "list",
+					"pathName": "pages/list/list",
+					"query": "classid=1",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "keyword=霸气&state=2",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": "id=42610",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布网名",
+					"pathName": "pages/publish/wangming/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我发布的网名",
+					"pathName": "pages/my/publish/publish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "my-about",
+					"pathName": "pages/my/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qianming-index",
+					"pathName": "pages/qianming/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bind",
+					"pathName": "pages/bind/bind",
+					"scene": null
+				}
+			]
 		}
 	}
 }
