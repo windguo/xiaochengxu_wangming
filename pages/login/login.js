@@ -12,6 +12,11 @@ Page({
     bindGetUserInfo:function(){
         this.onLogin();
     },
+  _back: function () {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
     onLogin:function(){
 			COMMONFN.checkIsLogin();
 			console.log('onLoginonLogin');

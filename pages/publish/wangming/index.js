@@ -41,6 +41,9 @@ Page({
 			title: '发布头像'
 		});
 		console.log('options----options',options);
+    if (options.classid){
+      console.log('111');
+    }
 		this.setData({
 			sessionkey: wx.getStorageSync('storageSessionkey'),
 			rnd: wx.getStorageSync('storageRnd'),
@@ -124,17 +127,17 @@ Page({
 					if (json.data.status == 1) {
 						wx.showModal({
 							content: json.data.message,
-							cancelText:'返回首页',
-							confirmText:'我的发布',
+							cancelText:'我的发布',
+							confirmText:'继续发布',
 							confirmColor: '#ff5a00',
 							success: function (res) {
 								if (res.cancel) {
-									wx.switchTab({
-										url: '../../index/index'
+                  wx.redirectTo({
+                    url: '../../my/publish/publish'
 									});
 								} else {
 									wx.redirectTo({
-										url: '../../my/publish/publish'
+                    url: '../../publish/wangming/index?classid=' + e.detail.value.classid
 									});
 								}
 							}

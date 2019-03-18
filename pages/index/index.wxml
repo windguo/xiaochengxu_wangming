@@ -6,6 +6,10 @@
 	</view>
 </view>
 <view style="height:{{CustomBar}}px;"></view>
+
+<navigator url="../publish/wangming/index" hover-class="navigator-hover">
+  <view class="add icon icon-add"></view>
+</navigator>
 <view class="container bgeee">
 	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">
     <image class="addGif" src='../../images/add.png' background-size="cover"></image>
@@ -18,7 +22,7 @@
 					</navigator>
 			</swiper-item>
     </swiper>
-		<view class="tip">欢迎添加客服：fengzhang201909 邀请进微信群</view>
+		<view class="tip">欢迎添加客服：fengzhang201909 交流问题哦</view>
     <view class="node-list">
         <block wx:for="{{expertList}}">
             <navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
@@ -50,28 +54,3 @@
         </view>
     </view>
 </view>
-<!-- <view class="container">
-	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">
-        <image class="addGif" src='../../images/add.png' background-size="cover"></image>
-    </view>
-  <view>
-    <scroll-view scroll-with-animation="true" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-    <view  wx:for="{{expertList}}" wx:for-index="idx" wx:for-item="item" class="tab-item {{currentTab==idx?'active':''}}" data-current="{{idx}}" bindtap="swichNav">{{item.classname}}</view>
-  </scroll-view>
-  </view>
-	<view class="adaaas">
-		<ad unit-id="adunit-21a62c6200a47124"></ad>
-	</view>
-  <swiper class="tab-content" current="{{currentTab}}"  duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
-    <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
-        <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
-          <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item">
-					<navigator url="../detail/detail?title={{item.title}}&ftitle={{item.ftitle}}" hover-class="navigator-hover">
-						<view>{{item.title}}</view>
-            <view style="margin-top:20rpx;">{{item.ftitle}}</view>
-					</navigator>
-          </view>
-        </scroll-view>
-      </swiper-item>
-  </swiper>
-</view> -->
