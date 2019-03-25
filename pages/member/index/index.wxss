@@ -1,8 +1,19 @@
-.listViews{background: #fff;margin:40rpx;border-radius:20rpx;color:#666;text-align: center;padding:30rpx;}
-.listViews h2{padding-bottom:20rpx;display: block;}
-.img{height:100rpx;width: 100%}
-.scoll-h{height: 100%;}
-
+.swiper-tab{  
+	width: 100%;  
+	text-align: center;  
+	line-height: 80rpx;
+	background: #fff;
+}  
+.swiper-tab-list{  
+	font-size: 36rpx;
+	padding:10rpx 0;
+	display: inline-block;  
+	width: 50%;  
+	color: #272727;
+}  
+.on{ color: #c00}  
+  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; } 
 .node-list{
     display: flex;
     flex-flow: wrap;
@@ -24,7 +35,7 @@
 }
 .node-item .top .t{
 	max-width: 360rpx;
-	font-size: 36rpx;
+	font-size: 30rpx;
 	overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -51,17 +62,8 @@
 	color: #ed6ea0
 }
 .node-item .bottom .username{
-	max-width: 150rpx;
+	max-width: 300rpx;
 	text-overflow: ellipsis;
   white-space: nowrap;
 	overflow: hidden;
-}
-
-.sharetoFrinend{
-	width:60%;
-	position: fixed;
-	bottom:30rpx;
-	font-size: 36rpx;
-	left:20%;
-	opacity: 0.85
 }

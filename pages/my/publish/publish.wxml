@@ -28,6 +28,7 @@
 								<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
 							</view>
 							<view class="bottom">
+								<view  class="onclick"><span>{{item.newstime}}</span></view>
 								<view class="onclick">人气：<span>{{item.onclick}}</span>℃</view>
 								<!-- <view class="icon icon-favor_light "></view>
 								<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
@@ -39,7 +40,8 @@
 							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
 						</navigator>
 						<view class="bottom">
-							<view class="onclick">人气：<span>{{item.onclick}}</span>℃</view>
+							<view  class="onclick"><span>{{item.newstime}}</span></view>
+							<view class="onclick"><span>{{item.onclick}}</span>℃</view>
 							<!-- <view class="icon icon-favor_light "></view>
 							<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
 						</view>

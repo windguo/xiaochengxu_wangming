@@ -22,7 +22,51 @@
 					</navigator>
 			</swiper-item>
     </swiper>
-		<view class="tip">欢迎添加客服：fengzhang201909 交流问题哦</view>
+		<view class="tongji">今日({{snewstime}})新增网名<span>{{todayUpdate}}</span>个,共有<span>{{total}}</span>个</view>
+		<view class="eliteTitle">
+			<h2>最新更新网名</h2>
+			<navigator url="../member/index/index">
+				<view class="icon icon-rank member_rank">会员排行榜</view>
+			</navigator>
+		</view>
+		<view class="wangming-list">
+				<block wx:for="{{wangmingNewArray}}" wx:for-index="i" wx:for-item="item">
+					<view class="wangming-item">
+						<navigator class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
+							<view class='t'>{{item.title}}</view>
+							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+						</navigator>
+						<view class="bottom">
+							<view  class="onclick"><span>{{item.newstime}}</span></view>
+							<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+								<view class="username">{{item.username}}</view>
+							</navigator>
+							<!-- <view class="icon icon-favor_light "></view>
+							<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
+						</view>
+					</view>
+				</block>
+			</view>
+		<h2 class="eliteH2">今日网名推荐</h2>
+		<view class="wangming-list">
+			<block wx:for="{{wangmingArray}}" wx:for-index="i" wx:for-item="item">
+				<view class="wangming-item">
+					<navigator class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
+						<view class='t'>{{item.title}}</view>
+						<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+					</navigator>
+					<view class="bottom">
+						<view class="onclick"><span>{{item.onclick}}</span>℃</view>
+						<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+							<view class="username">{{item.username}}</view>
+						</navigator>
+						<!-- <view class="icon icon-favor_light "></view>
+						<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
+					</view>
+				</view>
+			</block>
+		</view>
+		<h2 class="eliteH2">网名分类</h2>
     <view class="node-list">
         <block wx:for="{{expertList}}">
             <navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
@@ -33,7 +77,7 @@
 		<view class="ads">
         <ad unit-id="adunit-21a62c6200a47124"></ad>
     </view>
-		<h2>【爱头像】头像精选</h2>
+		<h2 class="h2">【爱头像】头像精选</h2>
   <view class="layout_vertical">
     <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item">
       <navigator path='/pages/result/result?url={{item.pic}}' target="miniProgram" open-type="navigate" app-id="wxb2e976cef0f6facb" extra-data="" version="release">
@@ -44,7 +88,7 @@
 	<view class="ads">
         <ad unit-id="adunit-21a62c6200a47124"></ad>
     </view>
-		<h2>【爱爆笑】段子精选</h2>
+		<h2 class="h2">【爱爆笑】段子精选</h2>
     <view class="layout_vertical">
         <view wx:for="{{contentArrayBaoxiao}}" class="baoxiaoListViews" wx:for-index="i" wx:for-item="item">
             <navigator target="miniProgram" open-type="navigate" app-id="wx8041cab51c6ffcff" extra-data="" version="release"

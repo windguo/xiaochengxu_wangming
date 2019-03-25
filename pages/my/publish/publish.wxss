@@ -38,12 +38,14 @@
 
 .listViews .top{
 	padding:30rpx;
+	height:110rpx;
 }
 .listViews .top .t{
 	max-width: 360rpx;
 	overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+	font-size:36rpx;
 }
 .listViews .bottom{
 	background:#fff;
@@ -61,6 +63,7 @@
 }
 .listViews .bottom .onclick span{
 	font-size: 30rpx;
+	color: #ed6ea0;
 }
 .listViews .bottom .ed{
 	color: #ed6ea0

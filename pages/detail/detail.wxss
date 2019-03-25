@@ -1,6 +1,6 @@
 Page{background:#f4f4f4;}
-.h1{padding:60rpx;text-align: center;background: #fff;margin:40rpx;border-radius: 20rpx;line-height: 100rpx;font-size: 50rpx;color: orangered;background:#fffff0;border:1rpx solid orangered}
-
+.h1{padding:60rpx 60rpx 20rpx 60rpx;text-align: center;background: #fffff0;margin:40rpx;border-radius: 20rpx;line-height: 100rpx;font-size: 50rpx;color: orangered;border:1rpx solid #f60;box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);}
+.tip{font-size: 30rpx;color: #999;}
 .h2{text-align: center;padding:40rpx 0 30rpx 0;display: flex;justify-content: space-between;margin:0 30rpx;}
 .node-list{
     display: flex;
@@ -25,10 +25,20 @@ swiper{height:300rpx;font-weight: 300}
 .swiper_item{text-align:center;font-size:50rpx;line-height:140rpx;height:300rpx;}
 swiper .img{height:300rpx;width:100%}
 .shares{
-	margin:20rpx 40rpx 50rpx 40rpx;
+	margin:20rpx 40rpx 40rpx 40rpx;
 	align-items: center;
 	display: flex;
-	justify-content: last baseline;
+	justify-content: space-around;
 }
-.shares .onclick{flex:1}
-.shares .b{flex: 1}
+button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #282828;line-height: 2.5;}
+.bottom{
+	color: #282828;
+	display: flex;
+	justify-content: space-around;
+}
+.bottom .icon{
+	font-size: 36rpx;
+	margin-left:10rpx;
+}
+
+.bottom .ed{color: #c00;}

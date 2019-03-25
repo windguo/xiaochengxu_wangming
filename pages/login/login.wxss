@@ -10,13 +10,16 @@ Page{background: #fff;}
 .btn-area{padding-top: 50rpx;}
 .formWrap .section .section__title{padding-bottom:10rpx;}
 
-.icon-back{
+.icon-back,.icon-home{
 	position: absolute;
-	left:40rpx;
+	left:90rpx;
 	top:100rpx;
 	color: #fff;
 	font-weight: 100;
 	font-size: 36rpx;
+}
+.icon-home{
+	left:40rpx
 }
 
 .header{padding:50rpx;text-align: center}

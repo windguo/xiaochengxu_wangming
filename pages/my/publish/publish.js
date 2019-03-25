@@ -12,7 +12,8 @@ Page({
 		navbarData: {
 			title: "我的发布",
 			showCapsule: true,
-			back: true
+			back: true,
+			home:true
 		},
 		contentArray: [],
 		page: 1,
@@ -108,6 +109,8 @@ Page({
 				__arr = ___.concat(__arr);
 				console.log('__arr', __arr);
 				that.setData({
+					dataHidden:true,
+					dataShow:false,
 					contentArray: __arr
 				});
 				wx.hideLoading();

@@ -10,6 +10,7 @@ Page({
 		page: 1,
 		keyword:'',
 		keywordFlag:false,
+		onclick:'',
 		focus:true,
 		resu:'',
 		winHeight: "",//窗口高度

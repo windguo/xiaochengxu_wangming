@@ -1,3 +1,4 @@
+var COMMONFN = require('../../utils/util.js');
 var app = getApp();
 Page({
 	data: {
@@ -12,8 +13,14 @@ Page({
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		id:null,
+		classid:null,
 		title:'加载中...',
 		ftitle: '',
+		username:'',
+		userid:'',
+		newstime:'',
+		diggFlag:false,
+		favaFlag: false,
 		contentArray:[],
 		autoplay: true,
 		interval: 5000,
@@ -24,12 +31,57 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		COMMONFN.checkIsLogin();
 		console.log('__options__',options);
 		wx.showLoading({
 			title: '加载中'
+		});
+		this.setData({
+			id:options.id,
+			classid:options.classid
 		})
 		this.getContent(options.id);
 		this.ad();
+	},
+	diggtopFn:function(e){
+		let _this = this;
+		console.log('eeee-',e);
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/public/digg/index.php?afrom=xiaochengxu&dotop=1&doajax=1&ajaxarea=diggnum&id=' + this.data.id + '&classid=' + this.data.classid);
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/public/digg/index.php?afrom=xiaochengxu&dotop=1&doajax=1&ajaxarea=diggnum&id=' + this.data.id + '&classid=' + this.data.classid,
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======diggtopFn------', json.data);
+				_this.setData({
+					diggFlag:true
+				})
+				wx.showModal({
+					content: json.data.message
+				})
+				wx.hideLoading()
+			}
+		})
+	},
+	favaFn: function (e) {
+		let _this = this;
+		console.log('eeee-', e);
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/member/fava/add/index.php?afrom=xiaochengxu&id=' + this.data.id + '&classid=' + this.data.classid + '&userid=' + this.data.userid);
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/member/fava/add/index.php?afrom=xiaochengxu&id=' + this.data.id + '&classid=' + this.data.classid + '&userid=' + this.data.userid,
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======favaFn------', json.data);
+				_this.setData({
+					favaFlag: true
+				})
+				wx.showModal({
+					content: json.data.message
+				})
+				wx.hideLoading()
+			}
+		})
 	},
 	getContent:function(id){
 		let that = this;
@@ -43,7 +95,10 @@ Page({
 				that.setData({
 					title:json.data.result.title,
 					onclick: json.data.result.onclick,
-					ftitle: json.data.result.ftitle
+					ftitle: json.data.result.ftitle,
+					username:json.data.result.username,
+					userid:json.data.result.userid,
+					newstime:json.data.result.newstime
 				});
 				this.getList();
 				wx.hideLoading();

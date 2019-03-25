@@ -2,7 +2,7 @@
 <view style="height:{{CustomBar}}px;"></view>
 
 <view class="container">
-	<form bindsubmit="formSubmit">
+	<form bindsubmit="formSubmit" report-submit='true'>
 		<view class="publishBox">
 			<view class="classs">
 			<picker bindchange="bindPickerChange" name="classid" value="{{objectArray[index].classid}}" range-key="classname" range="{{objectArray}}">

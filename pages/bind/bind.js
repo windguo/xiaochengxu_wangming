@@ -102,7 +102,7 @@ Page({
 									wx.setStorageSync('storageRnd', res.data.rnd);
 									wx.hideLoading();
 									wx.showModal({
-										content: res.data.message+'爱头像会员成功，点击【确定】即可与微信绑定成功并返回【首页】',
+										content: res.data.message+'网名生成会员成功，点击【确定】即可与微信绑定成功并返回【首页】',
 										showCancel: false,
 										confirmColor: '#ff5a00',
 										success: function (res) {
@@ -141,9 +141,20 @@ Page({
 			}
 		})
 	},
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-	}
+	copyTBL: function (e) {
+		console.log('wwweeee', e);
+		var self = this;
+		wx.setClipboardData({
+			data: e.currentTarget.dataset.text,
+			success: function (res) {
+				wx.getClipboardData({
+					success: function (res) {
+						wx.showToast({
+							title: '复制成功',
+						})
+					}
+				})
+			}
+		})
+	},
 })

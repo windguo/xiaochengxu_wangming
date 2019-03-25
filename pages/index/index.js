@@ -18,6 +18,9 @@ Page({
     }
   },
   data: {
+		todayUpdate: 0,
+		total: 0,
+		snewstime: '',
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		titleTop: app.globalData.StatusBar,
@@ -29,8 +32,11 @@ Page({
     expertListId:[],
     _windowWidth : wx.getSystemInfoSync().windowWidth,
     contentArray:[],
+		wangmingArray: [],
+		wangmingNewArray: [],
 		contentArrayAd:[],
 		hidden:false,
+		indicatorDots:true,
 		autoplay: true,
 		interval: 5000,
 		duration: 500
@@ -73,37 +79,49 @@ Page({
     })
   },
   onLoad: function () {
-		wx-wx.showLoading({
+		wx.showLoading({
 			title: '加载中'
 		});
-		// let _this = this;
-		// wx.getSystemInfo({
-		// 	success: function (res) {
-		// 		console.log('res----', res);
-		// 		switch (res.model) {
-		// 			case 'iPhone 5':
-		// 				_this.setData({
-		// 					titleTop: app.globalData.StatusBar + 12
-		// 				})
-		// 				break;
-		// 			case 'Nexus 5':
-		// 				_this.setData({
-		// 					titleTop: app.globalData.StatusBar + 10
-		// 				})
-		// 				break;
-		// 			case 'iPhone 6':
-		// 				_this.setData({
-		// 					titleTop: app.globalData.StatusBar + 10
-		// 				})
-		// 				break;
-		// 			default:
-		// 				_this.setData({
-		// 					titleTop: app.globalData.StatusBar + 10
-		// 				})
-		// 				break
-		// 		}
-		// 	}
-		// });
+
+		//统计数据
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				this.setData({
+					snewstime: json.data.result.newstime,
+					todayUpdate: json.data.result.toady,
+					total: json.data.result.count
+				})
+			}
+		})
+
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result);
+				that.setData({
+					wangmingNewArray: json.data.result
+				});
+				wx.hideLoading()
+			}
+		})
+
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=0',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result)
+				that.setData({
+					wangmingArray: json.data.result
+				})
+				wx.hideLoading()
+			}
+		})
 
     let _classid = [];
     let _expertListi = [];
@@ -174,6 +192,35 @@ Page({
 			}
 		})
   },
+	onPullDownRefresh: function () {
+		wx.showLoading();
+		let that = this;
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result);
+				that.setData({
+					wangmingNewArray: json.data.result
+				});
+				wx.hideLoading()
+			}
+		});
+		//统计数据
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				that.setData({
+					snewstime: json.data.result.newstime,
+					todayUpdate: json.data.result.toady,
+					total: json.data.result.count
+				})
+			}
+		})
+	},
 	searchPage:function(){
 		wx.navigateTo({
 			url: '../search/search'

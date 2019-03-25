@@ -44,10 +44,18 @@
 									<ad class="ads" unit-id="adunit-21a62c6200a47124"></ad>
 							</view>
 							<view class="node-item">
-								<navigator url="../detail/detail?id={{item.id}}">
-									<view>{{item.title}}</view>
-									<view hidden="{{Boolean(item.ftitle) ? true : false}}" style="margin-top:20rpx;">{{item.ftitle}}</view>
-							</navigator>
+								<navigator redirect class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
+									<view class='t'>{{item.title}}</view>
+									<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+								</navigator>
+								<view class="bottom">
+									<view class="onclick"><span>{{item.onclick}}</span>℃</view>
+									<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+										<view class="username">{{item.username}}</view>
+									</navigator>
+									<!-- <view class="icon icon-favor_light "></view>
+									<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
+								</view>
 								</view>
 						</block>
 					</view>

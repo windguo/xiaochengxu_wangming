@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -69,7 +69,7 @@
 					"id": 4,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
-					"query": "id=42610",
+					"query": "id=69730&classid=1",
 					"scene": null
 				},
 				{
@@ -80,10 +80,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "发布网名",
 					"pathName": "pages/publish/wangming/index",
-					"query": "",
+					"query": "classid=3",
 					"scene": null
 				},
 				{
@@ -111,6 +111,21 @@
 					"id": -1,
 					"name": "bind",
 					"pathName": "pages/bind/bind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bind",
+					"pathName": "pages/bind/bind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "member/index/index",
+					"pathName": "pages/member/index/index",
+					"query": "",
 					"scene": null
 				}
 			]

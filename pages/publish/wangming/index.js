@@ -28,6 +28,7 @@ Page({
 		avatarFlag:true,
 		imgs: [],
 		list: '',
+		classid:1,
 		upload_picture_list: [],
 		upload_percent:'0',
 		index:0,
@@ -41,9 +42,17 @@ Page({
 			title: '发布头像'
 		});
 		console.log('options----options',options);
-    if (options.classid){
-      console.log('111');
-    }
+		if ((options.classid && options.classid == 3) || (options.classid && options.classid == 8) || (options.classid && options.classid == 9) || (options.classid && options.classid == 10)){
+      this.setData({
+				ftitleFlag: false,
+				classid: options.classid
+			})
+		} else if (options.classid){
+			this.setData({
+				classid:options.classid,
+				ftitleFlag: true
+			})
+		}
 		this.setData({
 			sessionkey: wx.getStorageSync('storageSessionkey'),
 			rnd: wx.getStorageSync('storageRnd'),
@@ -63,10 +72,25 @@ Page({
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {
-				console.log('class---', json.data.result)
+				console.log('class---', json.data.result);
+				let _classid = [];
+				for(let i=0;i<(json.data.result).length;i++){
+					_classid.push(json.data.result[i].classid);
+				};
+				for (let _a = 0; _a < _classid.length;_a++){
+					if (_classid[_a] == that.data.classid){
+						console.log('---', _classid[_a]);
+						that.setData({
+							index: _classid[_a]-1
+						});
+						console.log(that.data.index);
+					}
+				}
+				console.log('_classid_',_classid);
 				that.setData({
 					objectArray: json.data.result
-				})
+				});
+				console.log('0000----000----',that.data.index);
 				wx.hideLoading()
 			}
 		})
@@ -162,7 +186,7 @@ Page({
 	},
 	bindPickerChange(e) {
 		console.log('picker发送选择改变，携带值为', e.detail.value);
-		if (e.detail.value == 2 || e.detail.value == 7 || e.detail.value == 8){
+		if (e.detail.value == 2 || e.detail.value == 7 || e.detail.value == 8 || e.detail.value == 9){
 			this.setData({
 				index: e.detail.value,
 				ftitleFlag:false

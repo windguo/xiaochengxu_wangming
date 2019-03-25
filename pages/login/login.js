@@ -17,6 +17,11 @@ Page({
       delta: 1,
     })
   },
+	_home:function(){
+		wx.switchTab({
+			url: '/pages/index/index'
+		})
+	},
     onLogin:function(){
 			COMMONFN.checkIsLogin();
 			console.log('onLoginonLogin');

@@ -13,11 +13,20 @@
 	<view class="h1">
 		<view bindtap="copyTBL" data-text="{{title}}">{{title}}</view>
 		<view bindtap="copyTBL" data-text="{{ftitle}}">{{ftitle}}</view>
+		<view class="tip">点击文字即可复制哦</view>
+		<view class="bottom">
+			<button open-type='share' class='icon icon-share' plain="true">分享</button>
+			<view bindtap='diggtopFn' class="icon icon-appreciate_light {{diggFlag ? 'ed' :''}}">点赞</view>
+		</view>
 	</view>
 	<view class="shares">
+		<view style="color:#ed6ea0;">{{newstime}}</view>
+		<navigator url="../list/list?state=2&userid={{userid}}&username={{username}}">
+			<view class="username">发布者：<span style="color:green;">{{username}}</span></view>
+		</navigator>
 		<view class="onclick">人气：{{onclick}}℃</view>
-		<button class="b" open-type='share' type='warn'>分享给好友</button>
 	</view>
+	
 	<ad unit-id="adunit-ec965aa6605af62d"></ad>
 	<view class="h2">
 		<h2>相关网名推荐</h2>

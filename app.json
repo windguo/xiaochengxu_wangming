@@ -20,7 +20,8 @@
 		"pages/my/about/about",
 		"pages/my/fava/fava",
 		"pages/my/publish/publish",
-		"pages/publish/wangming/index"
+		"pages/publish/wangming/index",
+		"pages/member/index/index"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
@@ -44,7 +45,8 @@
 				"iconPath": "images/ic_name.png",
 				"selectedIconPath": "images/ic_name_active.png",
 				"text": "网名生成"
-			},{
+			},
+			{
 				"pagePath": "pages/qianming/index/index",
 				"iconPath": "images/ic_shuoshuo.png",
 				"selectedIconPath": "images/ic_shuoshuo_active.png",

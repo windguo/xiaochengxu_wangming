@@ -16,25 +16,7 @@ Page({
 		username:"",
 		state:null
   },
-	diggtopFn:function(e){
-		let _this = this;
-		console.log('eeee-',e);
-		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/public/digg/index.php?afrom=xiaochengxu&dotop=1&doajax=1&ajaxarea=diggnum&id=' + e.currentTarget.dataset.id + '&classid=' + e.currentTarget.dataset.classid);
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/public/digg/index.php?afrom=xiaochengxu&dotop=1&doajax=1&ajaxarea=diggnum&id=' + e.currentTarget.dataset.id + '&classid=' + e.currentTarget.dataset.classid,
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				console.log('---======diggtopFn------', json.data.status)
-				_this.setData({
-					digg:{
-						id: e.currentTarget.dataset.id
-					}
-				})
-				wx.hideLoading()
-			}
-		})
-	},
+	
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中'
@@ -47,6 +29,7 @@ Page({
 				navbarData:{
 					title:options.username + '发布的网名',
 					showCapsule: true,
+					home:true,
 					back:true
 				}
 			});
