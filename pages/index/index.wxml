@@ -66,14 +66,6 @@
 				</view>
 			</block>
 		</view>
-		<h2 class="eliteH2">网名分类</h2>
-    <view class="node-list">
-        <block wx:for="{{expertList}}">
-            <navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
-                {{item.classname}}
-            </navigator>
-        </block>
-    </view>
 		<view class="ads">
         <ad unit-id="adunit-21a62c6200a47124"></ad>
     </view>

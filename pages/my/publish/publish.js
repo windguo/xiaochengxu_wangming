@@ -25,6 +25,8 @@ Page({
 		dataHidden:true,
 		dataShow:false,
 		page: 1,
+		id:'',
+		classid:'',
 		click: 0,
 		favas: 0,
 		diggup: 0,

@@ -70,52 +70,6 @@ button[plain]{ border:0;padding:0;margin:0;margin-top:30rpx;margin-left:50rpx;co
 }
 .search .icon{margin-right:10rpx;}
 
-.node-list{
-    display: flex;
-    flex-flow: wrap;
-    margin:30rpx 0 0rpx 30rpx;
-}
-.node-item {
-    width: 22%;
-    font-size:28rpx;
-    background: #eee;
-    border-radius: 20rpx;
-    padding:25rpx 30rpx;
-    color:#333;
-    text-align: center;
-    margin-right: 20rpx;
-    margin-bottom: 40rpx;
-}
-.node-item:nth-child(1){background: Turquoise}
-.node-item:nth-child(2){background: LightSalmon}
-.node-item:nth-child(3){background: LightGreen}
-.node-item:nth-child(4){background: LightPink}
-.node-item:nth-child(5){background: SkyBlue}
-.node-item:nth-child(6){background: LightSteelBlue}
-.node-item:nth-child(7){background: LightSalmon}
-.node-item:nth-child(8){background: Violet}
-.node-item:nth-child(9){background: LightBLue}
-.node-item:nth-child(10){background: LightSalmon}
-.node-item:nth-child(11){background: LightSteelBlue}
-.node-item:nth-child(12){background: Turquoise}
-.node-item:nth-child(13){background: SkyBlue}
-.node-item:nth-child(14){background: LightSalmon}
-.node-item:nth-child(15){background: LightGreen}
-.node-item:nth-child(16){background: Violet}
-.node-item:nth-child(17){background: Turquoise}
-.node-item:nth-child(18){background: LightSteelBlue}
-.node-item:nth-child(19){background: SkyBlue}
-.node-item:nth-child(20){background: LightSalmon}
-.node-item:nth-child(21){background: Violet}
-.node-item:nth-child(22){background: LightBLue}
-.node-item:nth-child(23){background: LightSalmon}
-.node-item:nth-child(24){background: LightSteelBlue}
-.node-item:nth-child(25){background: Turquoise}
-.node-item:nth-child(26){background: SkyBlue}
-.node-item:nth-child(27){background: LightSalmon}
-.node-item:nth-child(28){background: LightGreen}
-.node-item:nth-child(29){background: Violet}
-
 .covers {
   position: absolute;
   top: 0;

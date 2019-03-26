@@ -35,7 +35,7 @@
 							</view>
 						</view>
 						<block wx:else>
-							<navigator class="top" url="../../detail/detail?id={{item.id}}">
+							<navigator class="top" url="../../detail/detail?id={{item.id}}&classid={{item.classid}}">
 							<view class='t'>{{item.title}}</view>
 							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
 						</navigator>

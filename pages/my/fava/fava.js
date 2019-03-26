@@ -1,10 +1,18 @@
 var COMMONFN = require('../../../utils/util.js');
+var app = getApp();
 Page({
-
-	/**
-	 * 页面的初始数据
-	 */
 	data: {
+		height: app.globalData.height * 2 + 25,
+		StatusBar: app.globalData.StatusBar,
+		CustomBar: app.globalData.CustomBar,
+		navbarData: {
+			title: "我的收藏",
+			showCapsule: true,
+			back: true,
+			home: true
+		},
+		id:'',
+		classid: '',
 		usernames: '',
 		avatarUrl: '',
 		userid: 0,
@@ -37,25 +45,16 @@ Page({
 			title: '我的收藏',
 		});
 		this.setData({
-			avatarUrl: wx.getStorageSync('storageLoginedavAtarUrl'),
-			sessionkey: wx.getStorageSync('storageSessionkey'),
-			rnd: wx.getStorageSync('storageRnd'),
-			userid: wx.getStorageSync('storageLoginedUserId'),
-			usernames: wx.getStorageSync('storageLoginedUsernames')
-		});
-		console.log('usernamesusernames--==--', this.data.usernames);
-		if (!this.data.usernames) {
-			wx.redirectTo({
-				url: '../../login/login'
-			});
-		};
+			userid: wx.getStorageSync('storageLoginedUserId')
+		})
 		this.winHeight();
 		this.getFavas();
 	},
 	getFavas:function(){
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid);
 		let that = this;
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/aitouxiang_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid,
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid,
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {
@@ -63,35 +62,12 @@ Page({
 				that.setData({
 					contentArray:json.data.result
 				});
-				if (json.data.result.length > 0){
+				if ((json.data.result).length > 0){
 					that.setData({
 						dataHidden: true
 					});
 				}
 				wx.hideLoading();
-			}
-		})
-	},
-	// 移除收藏
-	removeFavas:function(e){
-		let picurl = e.currentTarget.dataset.id;
-		console.log('移除id=' + picurl + '的收藏');
-		var nowidx = e.currentTarget.dataset.idx;//当前索引
-		var oldarr = this.data.contentArray;//循环内容
-		oldarr.splice(nowidx, 1);    //删除当前索引的内容，这样就能删除view了
-		this.setData({
-			contentArray: oldarr
-		})
-		let that = this;
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/aitouxiang_xiaochengxu_api/?getJson=myfavas_removeOne&picUrl=' + picurl,
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				console.log('removeFavas--json', json.data);
-				that.setData({
-					contentArray: oldarr
-				});
 			}
 		})
 	},
@@ -104,8 +80,9 @@ Page({
 		this.setData({
 			page: that.data.page + 1
 		});
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid + '&page=' + that.data.page);
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/aitouxiang_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid + '&page=' + that.data.page,
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=myfavas&userid=' + this.data.userid + '&page=' + that.data.page,
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {

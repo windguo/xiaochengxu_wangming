@@ -1,0 +1,13 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+	<ad unit-id="adunit-21a62c6200a47124"></ad>
+	<view class="node-list">
+			<block wx:for="{{expertList}}">
+					<navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
+							{{item.classname}}
+					</navigator>
+			</block>
+	</view>
+</view>

@@ -24,7 +24,11 @@ Page({
 		contentArray:[],
 		autoplay: true,
 		interval: 5000,
-		duration: 500
+		duration: 500,
+		sessionkey: '',
+		rnd: '',
+		usernames: '',
+		favaid:null
 	},
 
 	/**
@@ -38,12 +42,46 @@ Page({
 		});
 		this.setData({
 			id:options.id,
-			classid:options.classid
+			classid:options.classid,
+			sessionkey: wx.getStorageSync('storageSessionkey'),
+			rnd: wx.getStorageSync('storageRnd'),
+			usernames: wx.getStorageSync('storageLoginedUsernames'),
+			userid: wx.getStorageSync('storageLoginedUserId')
+			
 		})
 		this.getContent(options.id);
 		this.ad();
+		this.check_fava_article();
+	},
+	// 检测是否已经收藏
+	check_fava_article:function(){
+		let that = this;
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=check_fava_article&id=' + this.data.id + '&classid=' + this.data.classid + '&userid=' + this.data.userid,
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======check_fava_article------', json.data);
+				if (json.data.status == 1){
+					console.log('收藏过了');
+					console.log('json.data.result.favaid--', json.data.result.favaid);
+					that.setData({
+						favaFlag:true,
+						favaid: json.data.result.favaid
+					})
+				}else{
+					that.setData({
+						favaFlag: false
+					})
+				}
+			}
+		})
 	},
 	diggtopFn:function(e){
+		wx.showLoading({
+			title: '点赞中...',
+			mask: true
+		})
 		let _this = this;
 		console.log('eeee-',e);
 		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/public/digg/index.php?afrom=xiaochengxu&dotop=1&doajax=1&ajaxarea=diggnum&id=' + this.data.id + '&classid=' + this.data.classid);
@@ -57,27 +95,82 @@ Page({
 					diggFlag:true
 				})
 				wx.showModal({
-					content: json.data.message
+					content: json.data.message,
+					mask:true
 				})
 				wx.hideLoading()
 			}
 		})
 	},
+	// 加入收藏
 	favaFn: function (e) {
+		wx.showLoading({
+			title: '收藏中...',
+			mask: true
+		})
 		let _this = this;
-		console.log('eeee-', e);
-		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/member/fava/add/index.php?afrom=xiaochengxu&id=' + this.data.id + '&classid=' + this.data.classid + '&userid=' + this.data.userid);
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api_root/e/member/fava/add/index.php?afrom=xiaochengxu&id=' + this.data.id + '&classid=' + this.data.classid + '&userid=' + this.data.userid,
-			method: 'GET',
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/fava.php',
+			data: {
+				sessionkey: this.data.sessionkey,
+				ecmsfrom: 'xiaochengxu',
+				username: this.data.usernames,
+				enews: 'AddFava',
+				rnd: this.data.rnd,
+				classid: this.data.classid,
+				id: this.data.id,
+				Submit: '收藏'
+			},
+			header: { 'content-type': 'application/x-www-form-urlencoded' },
+			method: 'POST',
 			dataType: 'json',
 			success: (json) => {
 				console.log('---======favaFn------', json.data);
 				_this.setData({
-					favaFlag: true
+					favaFlag: true,
+					favaid: json.data.result.favaid
 				})
 				wx.showModal({
-					content: json.data.message
+					title: json.data.message,
+					content:'请到【我的】-【我的收藏】查看收藏的网名',
+					mask:true
+				})
+				console.log('this.data.favaid---',this.data.favaid);
+				wx.hideLoading()
+			}
+		})
+	},
+	// 移除收藏
+	favaDisFn: function (e) {
+		wx.showLoading({
+			title: '移除收藏中...',
+			mask: true
+		})
+		let _this = this;
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/fava.php',
+			data: {
+				sessionkey: this.data.sessionkey,
+				ecmsfrom: 'xiaochengxu',
+				username: this.data.usernames,
+				enews: 'DelFava',
+				rnd: this.data.rnd,
+				classid: this.data.classid,
+				id: this.data.id,
+				favaid: this.data.favaid,
+				Submit: '收藏'
+			},
+			header: { 'content-type': 'application/x-www-form-urlencoded' },
+			method: 'POST',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======favaDisFn------', json.data);
+				_this.setData({
+					favaFlag: false
+				})
+				wx.showModal({
+					content: json.data.message,
+					mask:true
 				})
 				wx.hideLoading()
 			}

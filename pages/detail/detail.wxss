@@ -30,9 +30,9 @@ swiper .img{height:300rpx;width:100%}
 	display: flex;
 	justify-content: space-around;
 }
-button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #282828;line-height: 2.5;}
+button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #666;line-height: 2.5;}
 .bottom{
-	color: #282828;
+	color: #666;
 	display: flex;
 	justify-content: space-around;
 }
@@ -41,4 +41,4 @@ button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #282828;line-h
 	margin-left:10rpx;
 }
 
-.bottom .ed{color: #c00;}
+.bottom .ed{color: #f60;}

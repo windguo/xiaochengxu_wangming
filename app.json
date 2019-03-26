@@ -1,6 +1,7 @@
 {
 	"pages": [
 		"pages/index/index",
+		"pages/class/class",
 		"pages/login/login",
 		"pages/loginout/loginout",
 		"pages/bind/bind",
@@ -39,6 +40,12 @@
 				"iconPath": "images/ic_home.png",
 				"selectedIconPath": "images/ic_home_active.png",
 				"text": "网名首页"
+			},
+			{
+				"pagePath": "pages/class/class",
+				"iconPath": "images/ic_class.png",
+				"selectedIconPath": "images/ic_class_active.png",
+				"text": "网名分类"
 			},
 			{
 				"pagePath": "pages/wangming/wangming/index",
