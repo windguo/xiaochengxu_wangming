@@ -153,29 +153,29 @@ Page({
 					console.log('---===-----json====', json);
 					wx.hideLoading();
 					if (json.data.status == 1) {
-						wx.showToast({
-							title: json.data.message,
-							icon: 'success',
-							duration: 2000,
-							mask: true
-						})
-						// wx.showModal({
-						// 	content: json.data.message,
-						// 	cancelText:'我的发布',
-						// 	confirmText:'继续发布',
-						// 	confirmColor: '#ff5a00',
-						// 	success: function (res) {
-						// 		if (res.cancel) {
-            //       wx.redirectTo({
-            //         url: '../../my/publish/publish'
-						// 			});
-						// 		} else {
-						// 			wx.redirectTo({
-            //         url: '../../publish/wangming/index?classid=' + e.detail.value.classid
-						// 			});
-						// 		}
-						// 	}
+						// wx.showToast({
+						// 	title: json.data.message,
+						// 	icon: 'success',
+						// 	duration: 2000,
+						// 	mask: true
 						// })
+						wx.showModal({
+							content: json.data.message,
+							cancelText:'我的发布',
+							confirmText:'继续发布',
+							confirmColor: '#ff5a00',
+							success: function (res) {
+								if (res.cancel) {
+                  wx.redirectTo({
+                    url: '../../my/publish/publish'
+									});
+								} else {
+									wx.redirectTo({
+                    url: '../../publish/wangming/index?classid=' + e.detail.value.classid
+									});
+								}
+							}
+						})
 					}else{
 						wx.showModal({
 							title: '提示',
