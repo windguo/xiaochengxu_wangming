@@ -14,10 +14,9 @@
             <view class="node-item">
 							<navigator redirect class="top" url="../../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
 								<view class='t'>{{item.username}}</view>
-								<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
 							</navigator>
 							<view class="bottom">
-								<view class="onclick"><span>{{item.registertime}}</span></view>
+								<view class="onclick" bindtap="copyTBL" data-text="{{item.username}}"><span>{{item.registertime}}</span></view>
 							</view>
 						</view>
 					</block>

@@ -17,7 +17,6 @@ Page({
 		// tab切换  
 		currentTab: 0,
 		page:1,
-		userfenPage:1,
 		publishPage:1
 	},
 	onLoad: function () {
@@ -34,6 +33,9 @@ Page({
 		this.getNewData();
 	},
   getNewData:function(){
+    this.setData({
+      page:1
+    })
 		let that = this
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=member_new&page=' + this.data.page,
@@ -67,21 +69,24 @@ Page({
 			})
 		} else if (e.detail.current == 0){
 			this.getNewData();
-		} else if (e.detail.current == 2)(
-			wx.request({
-				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=member_userfen&page=' + this.data.userfenPage,
-				method: 'GET',
-				dataType: 'json',
-				success: (json) => {
-					console.log('---======------', json.data.result)
-					that.setData({
-						contentUserfenArray: json.data.result
-					})
-					wx.hideLoading()
-				}
-			})
-		)
+		}
 	},
+  copyTBL: function (e) {
+    console.log('wwweeee', e);
+    var self = this;
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text.trim(),
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功',
+            })
+          }
+        })
+      }
+    })
+  },
   /** 
    * 点击tab切换 
    */
@@ -138,24 +143,6 @@ Page({
 					wx.hideLoading()
 				}
 			})
-		} else if (that.data.currentTab == 2) {
-			this.setData({
-				userfenPage: that.data.userfenPage + 1
-			});
-			wx.request({
-				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=member_userfen&page=' + that.data.userfenPage,
-				method: 'GET',
-				dataType: 'json',
-				success: (json) => {
-					let _arr = this.data.contentUserfenArray
-					_arr = _arr.concat(json.data.result)
-					console.log('__arr__', _arr)
-					that.setData({
-						contentUserfenArray: _arr
-					})
-					wx.hideLoading()
-				}
-			})
-		}
+		} 
 	}
 })
