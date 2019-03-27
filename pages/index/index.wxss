@@ -13,7 +13,11 @@ Page{background: #eee;}
     color: #272727;  
 }  
 .on{ color: #c00;}  
-  
+
+.indexMoreButton{
+	margin:0rpx 40rpx 30rpx;
+}
+
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
 .swiper-box view{  
     text-align: center;  
@@ -23,7 +27,7 @@ Page{background: #eee;}
   position: fixed;
   width: 100%;
   top: 0;
-  background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
   color: #fff;
   z-index: 999;
 	display: flex;
@@ -124,19 +128,22 @@ swiper .img{height:300rpx;width:100%}
 }
 .eliteTitle{
 	font-size: 36rpx;
-	padding-top:30rpx;
+	padding-top:40rpx;
+	padding-bottom:20rpx;
 	display: flex;
-	justify-content: space-around;
+	margin:0 40rpx;
+	justify-content: space-between;
 }
 .member_rank{
-	color: #ec8c69;
+	color: #c00;
 	font-size: 36rpx;
 }
 
 .eliteH2{
 	text-align: center;
 	display: block;
-	padding-top:15rpx;
+	padding-top:20rpx;
+	font-size:36rpx;
 }
 .wangming-list{
     display: flex;
@@ -201,3 +208,33 @@ swiper .img{height:300rpx;width:100%}
     color: #999;
 }
 .tongji span{color: tomato;}
+
+.img-plus-style {
+	height: 100rpx;
+	width: 100rpx;
+	position: fixed;
+	bottom: 120rpx;
+	right: 80rpx;
+	z-index: 988;
+	font-size: 90rpx;
+	color: #e74c3c;
+}
+ 
+.img-style {
+	height: 80rpx;
+	width: 250rpx;
+	position: fixed;
+	bottom: 200rpx;
+	right: 80rpx;
+	opacity: 0;
+	z-index: 980;
+	color: #fff;
+	border-radius: 10rpx;
+}
+
+.img-style.a1{background: #8e44ad;}
+.img-style.a2{background: #2980b9;}
+.img-style.a3{background: #27ae60;}
+
+.img-style .icon{margin-left:20rpx;margin-right:10rpx;}
+.img-style h2{font-size:40rpx;}

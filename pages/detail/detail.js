@@ -28,7 +28,8 @@ Page({
 		sessionkey: '',
 		rnd: '',
 		usernames: '',
-		favaid:null
+		favaid:null,
+		state:''
 	},
 
 	/**
@@ -43,15 +44,25 @@ Page({
 		this.setData({
 			id:options.id,
 			classid:options.classid,
+			state: options.state || '',
 			sessionkey: wx.getStorageSync('storageSessionkey'),
 			rnd: wx.getStorageSync('storageRnd'),
 			usernames: wx.getStorageSync('storageLoginedUsernames'),
 			userid: wx.getStorageSync('storageLoginedUserId')
-			
 		})
 		this.getContent(options.id);
 		this.ad();
 		this.check_fava_article();
+		if (this.data.state == 3){
+			this.setData({
+				navbarData: {
+					title: "网名详情页",
+					showCapsule: true,
+					home: true,
+					back: false
+				},
+			})
+		}
 	},
 	// 检测是否已经收藏
 	check_fava_article:function(){

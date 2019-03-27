@@ -6,7 +6,8 @@
         <view class="ads">
             <ad unit-id="adunit-21a62c6200a47124"></ad>
         </view>
-        <view class="node-list">
+				<view class="nodata" wx:if="{{contentArrayFlag}}">暂未发布网名</view>
+        <view wx:else class="node-list">
 					<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
             <view wx:if="{{i == 20}}">
                 <view class="ads">

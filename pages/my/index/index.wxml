@@ -28,7 +28,7 @@
 		<navigator url="../publish/publish" hover-class="navigator-hover">
 				<view class="flex">
 					<view class="it">
-						<text class="icon icon-my"></text>
+						<text class="icon icon-profile_light"></text>
 						我发布的网名
 					</view>
 					<text class="r icon icon-right"></text>
@@ -43,6 +43,13 @@
 					<text class="r icon icon-right"></text>
 				</view>
 		</navigator>
+		<view class="flex" bindtap='copyTBL' data-text="fengzhang201909">
+			<view class="it">
+				<text class="icon icon-info"></text>
+				微信客服:<span style="color:#c00">fengzhang201909</span>
+			</view>
+			<text class="r icon icon-copy"></text>
+		</view>
 		<view class="flex">
 			<view class="it" bindtap='loginout'>
 				<text class="icon icon-out"></text>

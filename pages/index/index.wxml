@@ -7,9 +7,28 @@
 </view>
 <view style="height:{{CustomBar}}px;"></view>
 
-<navigator url="../publish/wangming/index" hover-class="navigator-hover">
-  <view class="add icon icon-add"></view>
-</navigator>
+<view>
+	<navigator redirect url="/pages/publish/wangming/index" hover-class="navigator-hover">
+		<view class="img-style a3" animation="{{animCollect}}">
+			<icon class="icon icon-edit"></icon>
+			<h2>发布网名</h2>
+		</view>
+	</navigator>
+	<navigator redirect url="/pages/my/fava/fava" hover-class="navigator-hover">
+		<view class="img-style a1" animation="{{animTranspond}}">
+			<icon class="icon icon-goods_favor_light"></icon>
+			<h2>我的收藏</h2>
+		</view>
+	</navigator>
+	<navigator redirect url="/pages/my/publish/publish" hover-class="navigator-hover">
+		<view class="img-style a2" animation="{{animInput}}">
+			<icon class="icon icon-profile_light"></icon>
+			<h2>我的发布</h2>
+		</view>
+	</navigator>
+	<icon class="img-plus-style icon icon-lianjiezhong" animation="{{animPlus}}" bindtap="plus"></icon>
+</view>
+
 <view class="container bgeee">
 	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">
     <image class="addGif" src='../../images/add.png' background-size="cover"></image>
@@ -30,23 +49,22 @@
 			</navigator>
 		</view>
 		<view class="wangming-list">
-				<block wx:for="{{wangmingNewArray}}" wx:for-index="i" wx:for-item="item">
-					<view class="wangming-item">
-						<navigator class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
-							<view class='t'>{{item.title}}</view>
-							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+			<block wx:for="{{wangmingNewArray}}" wx:for-index="i" wx:for-item="item">
+				<view class="wangming-item">
+					<navigator class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
+						<view class='t'>{{item.title}}</view>
+						<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+					</navigator>
+					<view class="bottom">
+						<view  class="onclick"><span>{{item.newstime}}</span></view>
+						<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+							<view class="username">{{item.username}}</view>
 						</navigator>
-						<view class="bottom">
-							<view  class="onclick"><span>{{item.newstime}}</span></view>
-							<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
-								<view class="username">{{item.username}}</view>
-							</navigator>
-							<!-- <view class="icon icon-favor_light "></view>
-							<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
-						</view>
 					</view>
-				</block>
-			</view>
+				</view>
+			</block>
+		</view>
+		<button type='warn' class="indexMoreButton" bindtap="scrolltolowerLoadDatas">查看更多网名</button>
 		<h2 class="eliteH2">今日网名推荐</h2>
 		<view class="wangming-list">
 			<block wx:for="{{wangmingArray}}" wx:for-index="i" wx:for-item="item">

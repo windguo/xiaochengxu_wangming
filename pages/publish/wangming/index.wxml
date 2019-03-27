@@ -2,6 +2,7 @@
 <view style="height:{{CustomBar}}px;"></view>
 
 <view class="container">
+	<view class="tips">欢迎大家分享网名,审核通过的网名将会收到微信通知哟！</view>
 	<form bindsubmit="formSubmit" report-submit='true'>
 		<view class="publishBox">
 			<view class="classs">

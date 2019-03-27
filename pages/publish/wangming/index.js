@@ -9,7 +9,8 @@ Page({
 		navbarData: {
 			title: '发布网名',
 			showCapsule: true,
-			back: true
+			back: true,
+			home:true
 		},
 		height: app.globalData.height * 2 + 25,
 		StatusBar: app.globalData.StatusBar,

@@ -13,9 +13,22 @@ Page({
 		height: getApp().globalData.height * 2 + 25,
 		StatusBar: getApp().globalData.StatusBar,
 		CustomBar: getApp().globalData.CustomBar,
-		username:'',
-		password:'',
-		nickname: ''
+		username:'xcx',
+		password:'123456',
+		nickname: 'nickname'
+	},
+	onLoad:function(){
+		let that = this;
+		wx.getUserInfo({
+			success: function (_res) {
+				console.log('- getUserInfo -', _res.userInfo);
+				that.setData({
+					username: _res.userInfo.nickName
+				})
+				that.confirmM();
+			}
+		})
+		
 	},
 	username: function (e) {
 		console.log('e.detail.valuee.detail.value', e.detail.value);
@@ -31,9 +44,10 @@ Page({
 	},
 	confirmM: function (e) {
 		wx.showLoading({
-			title: '加载中'
+			title: '注册会员中'
 		});
 		console.log("姓名：" + this.data.username + "密码：" + this.data.password);
+		//return false;
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/bind.php',
 			header: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -71,8 +85,8 @@ Page({
 							console.log('failssss');
 						}
 					})
-				} else if (res.data.status == '-3') {
-					let _usernames = this.data.username + '_' + parseInt(Math.random() * 9999);
+				} else {
+					let _usernames = this.data.username + '_' + parseInt(Math.random() * 99999);
 					wx.request({
 						url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/register.php',
 						header: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -102,7 +116,8 @@ Page({
 									wx.setStorageSync('storageRnd', res.data.rnd);
 									wx.hideLoading();
 									wx.showModal({
-										content: res.data.message+'网名生成会员成功，点击【确定】即可与微信绑定成功并返回【首页】',
+										title: '恭喜' + res.data.message,
+										content: '您的用户名是' + res.data.username+',点击【确定】即可与微信绑定成功并返回【首页】',
 										showCancel: false,
 										confirmColor: '#ff5a00',
 										success: function (res) {
@@ -122,17 +137,6 @@ Page({
 							})
 						}
 					})
-				} else {
-					wx.hideLoading();
-					wx.showModal({
-						content: res.data.message,
-						showCancel: false,
-						confirmColor: '#ff5a00'
-					})
-					setTimeout(function () {
-						wx.hideToast()
-					}, 2000);
-					return false;
 				}
 
 			},

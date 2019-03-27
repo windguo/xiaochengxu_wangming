@@ -5,6 +5,7 @@ Page({
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
     contentArray: [],
+		contentArrayFlag:false,
     page: 1,
     expertListi: [],
     expertList: [],
@@ -26,6 +27,7 @@ Page({
 			this.setData({
 				userid:options.userid,
 				state: options.state,
+				username: options.username,
 				navbarData:{
 					title:options.username + '发布的网名',
 					showCapsule: true,
@@ -57,10 +59,18 @@ Page({
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {
-				console.log('---======------', json.data.result)
-				that.setData({
-					contentArray: json.data.result
-				})
+				console.log('---======------', json.data.result);
+				if (JSON.stringify(json.data.result) === '[]'){
+					console.log('为发布');
+					that.setData({
+						contentArrayFlag:true
+					})
+				}else{
+					that.setData({
+						contentArray: json.data.result,
+						contentArrayFlag: false
+					})
+				}
 				wx.hideLoading()
 			}
 		})
@@ -98,18 +108,34 @@ Page({
     })
   },
 	onShareAppMessage: function (res) {
-		return {
-			title: '网名生成的' + this.data.classname +'栏目列表,@你来看看有喜欢的么',
-			imageUrl: '../../images/classname/' + this.data.classid + '.png',
-			success: (res) => {
-				wx.showToast({
-					content: '分享成功'
-				});
-			},
-			fail: (res) => {
-				wx.showToast({
-					content: '分享失败,原因是' + res
-				});
+		if(this.data.state == 2){
+			return {
+				title: this.data.username + '发布的网名,快来围观...',
+					success: (res) => {
+						wx.showToast({
+							content: '分享成功'
+						});
+					},
+						fail: (res) => {
+							wx.showToast({
+								content: '分享失败,原因是' + res
+							});
+						}
+			}
+		}else{
+			return {
+				title: '网名生成的' + this.data.classname + '栏目列表,@你来看看有喜欢的么',
+				imageUrl: '../../images/classname/' + this.data.classid + '.png',
+				success: (res) => {
+					wx.showToast({
+						content: '分享成功'
+					});
+				},
+				fail: (res) => {
+					wx.showToast({
+						content: '分享失败,原因是' + res
+					});
+				}
 			}
 		}
 	},
