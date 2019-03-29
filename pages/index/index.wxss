@@ -134,9 +134,13 @@ swiper .img{height:300rpx;width:100%}
 	margin:0 40rpx;
 	justify-content: space-between;
 }
-.member_rank{
-	color: #c00;
+.eliteTitle .member_rank{
+	color: green;
 	font-size: 36rpx;
+}
+.eliteTitle .publish{
+	font-size: 36rpx;
+	color: #c00;
 }
 
 .eliteH2{

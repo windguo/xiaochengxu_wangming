@@ -9,7 +9,7 @@
 				</swiper-item>
 				<swiper-item>
 					<view class="icon icon-profile">
-						欢迎<span>{{username}}</span>在<span>{{registertime}}</span>加入
+						欢迎<span>{{username}}</span>在<span>{{registertime}}</span>加入会员
 					</view>
 				</swiper-item>
 			</block> 

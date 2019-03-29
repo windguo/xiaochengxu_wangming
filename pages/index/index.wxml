@@ -43,10 +43,11 @@
     </swiper>
 		<text text-data='{{textData}}'></text>
 		<view class="eliteTitle">
-			<h2>最新更新网名</h2>
+			<h2>最新网名</h2>
 			<navigator url="../member/index/index">
 				<view class="icon icon-rank member_rank">会员排行榜</view>
 			</navigator>
+			<navigator redirect url="/pages/publish/wangming/index" ><view class="icon icon-edit publish">发布网名</view></navigator>
 		</view>
 		<view class="wangming-list">
 			<block wx:for="{{wangmingNewArray}}" wx:for-index="i" wx:for-item="item">
