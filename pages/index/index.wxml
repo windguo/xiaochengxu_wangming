@@ -41,7 +41,7 @@
 					</navigator>
 			</swiper-item>
     </swiper>
-		<view class="tongji">今日({{snewstime}})新增网名<span>{{todayUpdate}}</span>个,共有<span>{{total}}</span>个</view>
+		<text text-data='{{textData}}'></text>
 		<view class="eliteTitle">
 			<h2>最新更新网名</h2>
 			<navigator url="../member/index/index">

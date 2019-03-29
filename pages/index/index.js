@@ -18,6 +18,10 @@ Page({
     }
   },
   data: {
+		textData: {
+			title: '我是首页的tips',
+			icon: 'warn_light'
+		},
 		page:1,
 		todayUpdate: 0,
 		total: 0,
@@ -88,20 +92,6 @@ Page({
 		wx.showLoading({
 			title: '加载中'
 		});
-
-		//统计数据
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				this.setData({
-					snewstime: json.data.result.newstime,
-					todayUpdate: json.data.result.toady,
-					total: json.data.result.count
-				})
-			}
-		})
 
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',

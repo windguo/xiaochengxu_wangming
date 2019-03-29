@@ -22,7 +22,8 @@
 		"pages/my/fava/fava",
 		"pages/my/publish/publish",
 		"pages/publish/wangming/index",
-		"pages/member/index/index"
+		"pages/member/index/index",
+		"component/text/text"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
