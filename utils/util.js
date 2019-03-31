@@ -61,10 +61,29 @@ function checkIsLogin() {
 }
 const BASEURL = 'https://www.yishuzi.com.cn/touxiang_xiaochengxu_bizhi_api/'
 const CODE = 'client_id=a927fdd4759a9036435b7651c60fb3dcaed27d34c5f96e3f0b5f9a0da9288bd4'
+
+function extract_chinese_length(txt) {
+	var reg = /[\u4e00-\u9fa5]/g;
+	var names = txt.match(reg);
+	let t;
+	t = names.join("");
+	return t.length;
+}
+
+function extract_chinese(txt) {
+	var reg = /[\u4e00-\u9fa5]/g;
+	var names = txt.match(reg);
+	let t;
+	t = names.join("");
+	return t;
+};
+
 module.exports = {
 	// formatTime: formatTime,
 	BASEURL: BASEURL,
 	CODE: CODE,
 	getDateDiff: getDateDiff,
-	checkIsLogin: checkIsLogin
+	checkIsLogin: checkIsLogin,
+	extract_chinese: extract_chinese,
+	extract_chinese_length: extract_chinese_length
 }

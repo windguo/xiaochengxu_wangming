@@ -113,19 +113,6 @@ swiper .img{height:300rpx;width:100%}
 .listViews{flex:1;margin:10rpx 8rpx;background:#fff;padding:10rpx;border-radius: 10rpx;text-align: center}
 
 
-.add{
-  position: fixed;
-  bottom:100rpx;
-  right:100rpx;
-  width:110rpx;
-  height:110rpx;
-  background:#c00;
-  color: #fff;
-  font-size: 103rpx;
-  z-index: 999;
-  border-radius: 20rpx;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-}
 .eliteTitle{
 	font-size: 36rpx;
 	padding-top:40rpx;
@@ -242,3 +229,21 @@ swiper .img{height:300rpx;width:100%}
 
 .img-style .icon{margin-left:20rpx;margin-right:10rpx;}
 .img-style h2{font-size:40rpx;}
+
+.service{
+	display:none;
+	height: 95rpx;
+	width: 95rpx;
+	position: fixed;
+	bottom: 250rpx;
+	right: 86rpx;
+	z-index: 988;
+	font-size: 80rpx;
+	background: green;
+	color: #fff;
+	border:0;
+	border-radius: 30rpx;
+	padding:0;
+	outline: 0;
+	line-height: normal;
+}

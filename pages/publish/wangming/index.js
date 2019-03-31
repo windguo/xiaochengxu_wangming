@@ -127,6 +127,7 @@ Page({
 				enews: 'MAddInfo',
 				rnd: this.data.rnd,
 				formid: e.detail.formId,
+				titlenumber: COMMONFN.extract_chinese_length(e.detail.value.title),
 				mid: '7',
 				classid: e.detail.value.classid,
 				addnews: '提交'
@@ -142,6 +143,7 @@ Page({
 					enews: 'MAddInfo',
 					rnd: this.data.rnd,
 					formid: e.detail.formId,
+					titlenumber: COMMONFN.extract_chinese_length(e.detail.value.title),
 					mid: '7',
 					classid: e.detail.value.classid,
 					addnews: '提交'

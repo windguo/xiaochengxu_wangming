@@ -1,4 +1,4 @@
-// pages/bind/bind.js
+var COMMONFN = require('../../utils/util.js');
 Page({
 
 	/**
@@ -23,7 +23,7 @@ Page({
 			success: function (_res) {
 				console.log('- getUserInfo -', _res.userInfo);
 				that.setData({
-					username: _res.userInfo.nickName
+					username: COMMONFN.extract_chinese(_res.userInfo.nickName).substring(0, 3)
 				})
 				that.confirmM();
 			}

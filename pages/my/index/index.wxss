@@ -18,6 +18,11 @@
 .list{
 	margin-top:20rpx;
 }
+
+contact-button{
+	line-height: 60rpx;
+}
+
 .flex{
 	padding:20rpx 40rpx;
 	height:80rpx;

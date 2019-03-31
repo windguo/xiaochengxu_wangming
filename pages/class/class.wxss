@@ -48,3 +48,12 @@
 .node-item:nth-child(27){background: LightSalmon}
 .node-item:nth-child(28){background: LightGreen}
 .node-item:nth-child(29){background: Violet}
+.node-item:nth-child(30){background: Violet}
+.node-item:nth-child(31){background: LightBLue}
+.node-item:nth-child(32){background: LightSalmon}
+.node-item:nth-child(33){background: LightSteelBlue}
+.node-item:nth-child(34){background: Turquoise}
+.node-item:nth-child(35){background: SkyBlue}
+.node-item:nth-child(36){background: LightSalmon}
+.node-item:nth-child(37){background: LightGreen}
+.node-item:nth-child(38){background: Violet}

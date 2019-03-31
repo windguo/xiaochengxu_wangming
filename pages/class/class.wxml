@@ -3,11 +3,23 @@
 
 <view class="container bgeee">
 	<ad unit-id="adunit-21a62c6200a47124"></ad>
+	<view class="fontSizes">
+	</view>
 	<view class="node-list">
 			<block wx:for="{{expertList}}">
 					<navigator class="node-item" url="../list/list?classid={{item.classid}}&classname={{item.classname}}" hover-class="navigator-hover">
 							{{item.classname}}
 					</navigator>
 			</block>
+			<navigator class="node-item" url="../list/list?classname=一个字&state=3&size=1" hover-class="navigator-hover">一个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=二个字&state=3&size=2" hover-class="navigator-hover">二个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=三个字&state=3&size=3" hover-class="navigator-hover">三个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=四个字&state=3&size=4" hover-class="navigator-hover">四个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=五个字&state=3&size=5" hover-class="navigator-hover">五个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=六个字&state=3&size=6" hover-class="navigator-hover">六个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=七个字&state=3&size=7" hover-class="navigator-hover">七个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=八个字&state=3&size=8" hover-class="navigator-hover">八个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=九个字&state=3&size=9" hover-class="navigator-hover">九个字</navigator>
+			<navigator class="node-item" url="../list/list?classname=十个字&state=3&size=10" hover-class="navigator-hover">十个字</navigator>
 	</view>
 </view>

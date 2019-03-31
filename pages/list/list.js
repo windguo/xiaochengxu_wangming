@@ -6,6 +6,7 @@ Page({
 		CustomBar: app.globalData.CustomBar,
     contentArray: [],
 		contentArrayFlag:false,
+		sizePage:1,
     page: 1,
     expertListi: [],
     expertList: [],
@@ -36,6 +37,19 @@ Page({
 				}
 			});
 			this.getUserContent();
+		} else if (options.state == "3"){
+			this.setData({
+				classname:options.classname,
+				sizePage:options.size,
+				state: options.state,
+				navbarData: {
+					title: options.classname + '的网名',
+					showCapsule: true,
+					home: true,
+					back: true
+				}
+			});
+			this.getSizeData(options.size, this.data.sizePage)
 		}else{
 			this.setData({
 				classid: options.classid,
@@ -90,6 +104,23 @@ Page({
       }
     })
   },
+	getSizeData: function (classid, page) {
+		let that = this
+		console.log('__page__', this.data.page)
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&size=' + page)
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&size='+ page,
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result)
+				that.setData({
+					contentArray: json.data.result
+				})
+				wx.hideLoading()
+			}
+		})
+	},
   getListData: function (classid, page) {
     let that = this
     console.log('__page__', this.data.page)
@@ -122,6 +153,20 @@ Page({
 							});
 						}
 			}
+		}else if(this.data.state == 3){
+			return {
+				title: '网名生成的' + this.data.classname + '栏目列表,@你来看看有喜欢的么',
+				success: (res) => {
+					wx.showToast({
+						content: '分享成功'
+					});
+				},
+				fail: (res) => {
+					wx.showToast({
+						content: '分享失败,原因是' + res
+					});
+				}
+			}
 		}else{
 			return {
 				title: '网名生成的' + this.data.classname + '栏目列表,@你来看看有喜欢的么',
@@ -152,6 +197,22 @@ Page({
     if(this.data.state == 2){
 			wx.request({
 				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=article&userid=' + this.data.userid + '&page=' + this.data.page,
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					let _arr = this.data.contentArray
+					_arr = _arr.concat(json.data.result)
+					console.log('__arr__', _arr)
+					that.setData({
+						contentArray: _arr
+					})
+					wx.hideLoading()
+				}
+			})
+		} else if (this.data.state == 3){
+			console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&size=' + this.data.sizePage + '&page=' + this.data.page);
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&size=' + this.data.sizePage + '&page=' + this.data.page,
 				method: 'GET',
 				dataType: 'json',
 				success: (json) => {

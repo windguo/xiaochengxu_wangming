@@ -8,9 +8,6 @@
 			</view>
 			<view class="nodata" hidden='{{dataHidden}}'>
 				暂未收藏
-				<navigator redirect url='../../index/index'>
-					<button style="margin:40rpx 140rpx;" type='warn'>返回首页</button>
-				</navigator>
 			</view>
       <view hidden='{{dataShow}}' class="layout_vertical">
 				<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
