@@ -50,8 +50,8 @@
 			</view>
 			<text class="r icon icon-copy"></text>
 		</view>
-		<view class="flex">
-			<view class="it" bindtap='loginout'>
+		<view class="flex" bindtap='loginout'>
+			<view class="it">
 				<text class="icon icon-out"></text>
 				退出登录
 			</view>

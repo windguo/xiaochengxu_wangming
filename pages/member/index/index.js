@@ -20,6 +20,9 @@ Page({
 		publishPage:1
 	},
 	onLoad: function () {
+		wx.showLoading({
+			title: '加载中...'
+		});
 		var that = this;
 		wx.getSystemInfo({
 			success: function (res) {
@@ -33,6 +36,9 @@ Page({
 		this.getNewData();
 	},
   getNewData:function(){
+		wx.showLoading({
+			title: '加载中...'
+		});
     this.setData({
       page:1
     })
@@ -52,7 +58,9 @@ Page({
 	},
 	bindChange: function (e) {
 		var that = this;
-		wx.showLoading();
+		wx.showLoading({
+			title: '加载中...'
+		});
 		that.setData({ currentTab: e.detail.current });
 		if(e.detail.current == 1){
 			wx.request({

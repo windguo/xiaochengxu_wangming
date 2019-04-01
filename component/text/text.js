@@ -15,6 +15,7 @@ Component({
 		total: 0,
 		snewstime: '',
 		registertime: '',
+		todayRegister:'',
 		userid: '',
 		username: '',
 		StatusBar: app.globalData.StatusBar,
@@ -37,7 +38,9 @@ Component({
 				this.setData({
 					snewstime: json.data.result.newstime,
 					todayUpdate: json.data.result.toady,
-					total: json.data.result.count
+					total: json.data.result.count,
+					todayRegister: json.data.result.todayRegister,
+					members: json.data.result.members
 				})
 			}
 		});

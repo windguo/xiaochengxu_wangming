@@ -36,11 +36,10 @@ Page({
     expertList: [],
     expertListId:[],
     _windowWidth : wx.getSystemInfoSync().windowWidth,
-    contentArray:[],
 		wangmingArray: [],
 		wangmingNewArray: [],
 		contentArrayAd:[],
-		hidden:false,
+		hidden:true,
 		indicatorDots:true,
 		autoplay: true,
 		interval: 5000,
@@ -92,6 +91,11 @@ Page({
 		wx.showLoading({
 			title: '加载中'
 		});
+		if (wx.getStorageSync('storageLoginedUsernames') == '') {
+			this.setData({
+				hidden: false
+			})
+		}
 
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',
@@ -118,20 +122,6 @@ Page({
 				wx.hideLoading()
 			}
 		})
-
-    
-		// 头像数据
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/aitouxiang_xiaochengxu_api/?getJson=texts&classid=0',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				that.setData({
-					contentArray: json.data.result
-				})
-				wx.hideLoading()
-			}
-		});
     var that = this;
     //  高度自适应
     wx.getSystemInfo({

@@ -68,6 +68,9 @@
 			</block>
 		</view>
 		<button type='warn' class="indexMoreButton" bindtap="scrolltolowerLoadDatas">查看更多网名</button>
+		<view class="ads">
+        <ad unit-id="adunit-21a62c6200a47124"></ad>
+    </view>
 		<h2 class="eliteH2">今日网名推荐</h2>
 		<view class="wangming-list">
 			<block wx:for="{{wangmingArray}}" wx:for-index="i" wx:for-item="item">
@@ -81,23 +84,10 @@
 						<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
 							<view class="username">{{item.username}}</view>
 						</navigator>
-						<!-- <view class="icon icon-favor_light "></view>
-						<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
 					</view>
 				</view>
 			</block>
 		</view>
-		<view class="ads">
-        <ad unit-id="adunit-21a62c6200a47124"></ad>
-    </view>
-		<h2 class="h2">【爱头像】头像精选</h2>
-  <view class="layout_vertical">
-    <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item">
-      <navigator path='/pages/result/result?url={{item.pic}}' target="miniProgram" open-type="navigate" app-id="wxb2e976cef0f6facb" extra-data="" version="release">
-        <image bindtap="s" style="width:315rpx;height:315rpx;border-radius:10rpx;" src="{{item.pic}}"></image>
-      </navigator>
-    </view>
-  </view>
 	<view class="ads">
         <ad unit-id="adunit-21a62c6200a47124"></ad>
     </view>

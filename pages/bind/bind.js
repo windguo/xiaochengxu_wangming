@@ -116,9 +116,10 @@ Page({
 									wx.setStorageSync('storageRnd', res.data.rnd);
 									wx.hideLoading();
 									wx.showModal({
-										title: '恭喜' + res.data.message,
-										content: '您的用户名是' + res.data.username+',点击【确定】即可与微信绑定成功并返回【首页】',
-										showCancel: false,
+										title: '恭喜【' + res.data.username + '】' + res.data.message,
+										content: '添加客服微信号：fengzhang201909,加入微信群，不定期领红包哦',
+										cancelText: '返回我的',
+										confirmText: '返回首页',
 										confirmColor: '#ff5a00',
 										success: function (res) {
 											console.log(res)
@@ -126,10 +127,13 @@ Page({
 												wx.switchTab({
 													url: '../index/index'
 												});
+											} else {
+												wx.switchTab({
+													url: '../my/index/index'
+												});
 											}
 										}
 									})
-									
 								},
 								fail: function () {
 									console.log('failssss');

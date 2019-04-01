@@ -21,6 +21,7 @@
 }
 .node-item .top{
 	padding:30rpx;
+	height:110rpx;
 }
 .node-item .top .t{
 	max-width: 360rpx;

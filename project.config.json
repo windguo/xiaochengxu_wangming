@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -45,10 +45,10 @@
 					"query": "id= 120005"
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "签名首页",
-					"pathName": "pages/qianming/index/index",
-					"query": "",
+					"pathName": "pages/index/index",
+					"query": "state=1",
 					"scene": null
 				},
 				{
@@ -83,7 +83,7 @@
 					"id": 6,
 					"name": "发布网名",
 					"pathName": "pages/publish/wangming/index",
-					"query": "classid=3",
+					"query": "classid=1",
 					"scene": null
 				},
 				{

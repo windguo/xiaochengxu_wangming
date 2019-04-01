@@ -11,19 +11,32 @@
 /* 文字向上滚动开始 */
 .textwrap .textUp{
 	color: #666;
-	height:80rpx;
-	line-height: 80rpx;
+	height:100rpx;
+	line-height: 100rpx;
 	background: #fff;
-}
-.textwrap .textUp .icon span{
-	color: #c00;
 }
 .textwrap .textUp .icon{
 	font-size: 34rpx;
 	padding:0 40rpx;
 }
+.textwrap .textUp .icon span{
+	color: #ff0;
+	font-weight: 300;
+}
 .newMember{
 	display: flex;
 	justify-content: space-around;
+}
+.first{
+	background: #e66767;
+	color:#fff;
+}
+.second{
+	background: #c44569;
+	color:#fff;
+}
+.third{
+	background: #e15f41;
+	color: #fff;
 }
 /* 文字向上滚动结束 */
