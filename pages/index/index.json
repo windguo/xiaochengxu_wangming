@@ -1,7 +1,5 @@
 {
 	"usingComponents": {
 		"text": "/component/text/text"
-	},
-	"enablePullDownRefresh": true,
-	"backgroundTextStyle": "dark"
+	}
 }

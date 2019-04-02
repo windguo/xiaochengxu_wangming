@@ -66,16 +66,25 @@ function extract_chinese_length(txt) {
 	var reg = /[\u4e00-\u9fa5]/g;
 	var names = txt.match(reg);
 	let t;
-	t = names.join("");
-	return t.length;
+	if (names != null){
+		t = names.join("");
+		return t.length;
+	}else{
+		return 0;
+	}
+	
 }
 
 function extract_chinese(txt) {
 	var reg = /[\u4e00-\u9fa5]/g;
 	var names = txt.match(reg);
 	let t;
-	t = names.join("");
-	return t;
+	if (names != null) {
+		t = names.join("");
+		return t;
+	} else {
+		return 0;
+	}
 };
 
 module.exports = {

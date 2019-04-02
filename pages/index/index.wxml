@@ -29,7 +29,9 @@
 	<icon class="img-plus-style icon icon-lianjiezhong" animation="{{animPlus}}" bindtap="plus"></icon>
 </view>
 
-<button class="icon icon-service service" open-type='contact' hover-class="none">联系客服</button>
+<!-- <button class="icon icon-service service" open-type='contact' hover-class="none">联系客服</button> -->
+
+<icon bindtap="reloadFn" class="refresh icon icon-refresh"></icon>
 
 <view class="container bgeee">
 	<view bindtap="gifHidden" class="covers" hidden="{{hidden}}">

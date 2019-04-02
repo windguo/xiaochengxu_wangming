@@ -201,6 +201,7 @@ swiper .img{height:300rpx;width:100%}
 .tongji span{color: tomato;}
 
 .img-plus-style {
+	display: none;
 	height: 100rpx;
 	width: 100rpx;
 	position: fixed;
@@ -230,17 +231,15 @@ swiper .img{height:300rpx;width:100%}
 .img-style .icon{margin-left:20rpx;margin-right:10rpx;}
 .img-style h2{font-size:40rpx;}
 
-.service{
-	display:none;
+.refresh{
 	height: 95rpx;
 	width: 95rpx;
 	position: fixed;
-	bottom: 250rpx;
+	bottom: 100rpx;
 	right: 86rpx;
 	z-index: 988;
-	font-size: 80rpx;
-	background: green;
-	color: #fff;
+	font-size: 90rpx;
+	color: #e74c3c;
 	border:0;
 	border-radius: 30rpx;
 	padding:0;

@@ -87,16 +87,11 @@ Page({
       }
     })
   },
-  onLoad: function () {
+	getNewData:function(){
 		wx.showLoading({
-			title: '加载中'
-		});
-		if (wx.getStorageSync('storageLoginedUsernames') == '') {
-			this.setData({
-				hidden: false
-			})
-		}
-
+			title: '更新中...'
+		})
+		let that = this;
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',
 			method: 'GET',
@@ -109,7 +104,12 @@ Page({
 				wx.hideLoading()
 			}
 		})
-
+	},
+	getRandData:function(){
+		wx.showLoading({
+			title: '更新中...'
+		})
+		let that = this;
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=0',
 			method: 'GET',
@@ -122,6 +122,34 @@ Page({
 				wx.hideLoading()
 			}
 		})
+	},
+	getTotal:function(){
+		wx.showLoading({
+			title: '更新中...'
+		})
+		let that = this;
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				that.setData({
+					snewstime: json.data.result.newstime,
+					todayUpdate: json.data.result.toady,
+					total: json.data.result.count
+				})
+			}
+		})
+	},
+  onLoad: function () {
+		wx.showLoading({
+			title: '加载中'
+		});
+		if (wx.getStorageSync('storageLoginedUsernames') == '') {
+			this.setData({
+				hidden: false
+			})
+		}
     var that = this;
     //  高度自适应
     wx.getSystemInfo({
@@ -137,6 +165,12 @@ Page({
     });
 		// 获取广告
 		this.ad();
+		// 获取最新网名
+		this.getNewData();
+		// 获取推荐网名
+		this.getRandData();
+		// 获取统计数据
+		this.getTotal();
 		// 爱爆笑数据
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/jianjie8_xiaochengxu_api/xiaochengxu/duanzi/?getJson=column&classid=0',
@@ -160,34 +194,13 @@ Page({
 			}
 		})
   },
-	onPullDownRefresh: function () {
-		wx.showLoading();
-		let that = this;
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=column&classid=9999',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				console.log('---======------', json.data.result);
-				that.setData({
-					wangmingNewArray: json.data.result
-				});
-				wx.hideLoading()
-			}
-		});
-		//统计数据
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				that.setData({
-					snewstime: json.data.result.newstime,
-					todayUpdate: json.data.result.toady,
-					total: json.data.result.count
-				})
-			}
-		})
+	reloadFn:function(){
+		// 获取最新网名
+		this.getNewData();
+		// 获取推荐网名
+		this.getRandData();
+		// 获取统计数据
+		this.getTotal();
 	},
 	searchPage:function(){
 		wx.navigateTo({
