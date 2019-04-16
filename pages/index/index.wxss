@@ -125,6 +125,10 @@ swiper .img{height:300rpx;width:100%}
 	color: green;
 	font-size: 36rpx;
 }
+.fuhao{
+	font-size: 36rpx;
+	color: #f60;
+}
 .eliteTitle .publish{
 	font-size: 36rpx;
 	color: #c00;

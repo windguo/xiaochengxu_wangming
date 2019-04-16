@@ -1,68 +1,95 @@
-<header navbar-data='{{navbarData}}'></header>
-<view style="height:{{CustomBar}}px;"></view>
-
-<view class="container">
-		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-			<swiper-item wx:for="{{contentArrayAd}}" wx:for-index="i" wx:for-item="item">
-					<navigator target="miniProgram" open-type="navigate" app-id="{{item.alt}}" extra-data="" version="release"
-							path="/pages{{item.url}}" hover-class="navigator-hover">
-							<image class="img" src="{{item.picurl}}" mode='scaleToFill' />
+<swiper
+	class="swiper-box"
+  autoplay="{{autoplay}}"
+  interval="5000"
+  duration="200"
+	vertical="true"
+	circular="true"
+	style="height:{{height}}px"
+	bindchange='onSlideChangeEnd'
+>
+    <swiper-item>
+      <view class="wrap first">
+				<view style="height:{{CustomBar}}px;">
+					<view class="tips" style="padding-top:{{titleTop}}px;">
+						<icon bindtap="_home" class="icon icon-home"></icon>
+						<icon bindtap="_back" class="icon icon-back"></icon>
+						<text class="anim">支持上下滑动哦,试试看！</text>
+					</view>
+				</view>
+				<view class="ad"><ad unit-id="adunit-ec965aa6605af62d"></ad></view>
+				<view class="h1">
+					<view bindtap="copyTBL" data-text="{{detail.title}}">{{detail.title}}</view>
+					<view bindtap="copyTBL" data-text="{{detail.ftitle}}">{{detail.ftitle}}</view>
+					<view class="tip">点击文字即可复制哦</view>
+					<view class="bottom">
+						<button open-type='share' class='icon icon-share' plain="true">分享</button>
+						<block wx:if="{{favaFlag}}">
+							<view bindtap='favaDisFn' class="icon icon-close_light ed">移除收藏</view>
+						</block>
+						<block wx:else>
+							<view bindtap='favaFn' class="icon icon-favor_light">收藏</view>
+						</block>
+						<view bindtap='diggtopFn' class="icon icon-appreciate_light {{diggFlag ? 'ed' :''}}">点赞({{detail.diggtop}})</view>
+					</view>
+				</view>
+				<view class="shares">
+					<view>{{detail.newstime}}</view>
+					<navigator url="../list/list?state=2&userid={{userid}}&username={{username}}">
+						<view class="username">发布者：<span>{{detail.username}}</span></view>
 					</navigator>
-			</swiper-item>
-    </swiper>
-	<view class="h1">
-		<view bindtap="copyTBL" data-text="{{title}}">{{title}}</view>
-		<view bindtap="copyTBL" data-text="{{ftitle}}">{{ftitle}}</view>
-		<view class="tip">点击文字即可复制哦</view>
-		<view class="bottom">
-			<button open-type='share' class='icon icon-share' plain="true">分享</button>
-			<block wx:if="{{favaFlag}}">
-				<view bindtap='favaDisFn' class="icon icon-close_light ed">移除收藏</view>
-			</block>
-			<block wx:else>
-				<view bindtap='favaFn' class="icon icon-favor_light">收藏网名</view>
-			</block>
-			<view bindtap='diggtopFn' class="icon icon-appreciate_light {{diggFlag ? 'ed' :''}}">点赞</view>
-		</view>
-	</view>
-	<view class="shares">
-		<view style="color:#ed6ea0;">{{newstime}}</view>
-		<navigator url="../list/list?state=2&userid={{userid}}&username={{username}}">
-			<view class="username">发布者：<span style="color:#c00;">{{username}}</span></view>
-		</navigator>
-		<view class="onclick">人气：{{onclick}}℃</view>
-	</view>
-	
-	<ad unit-id="adunit-ec965aa6605af62d"></ad>
-	<view class="h2">
-		<h2>相关网名推荐</h2>
-		<view class="returnHome" bindtap='returnHome'>返回首页</view>
-	</view>
-	<view class="node-list">
-		<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
-			<view wx:if="{{i == 20}}">
-					<view class="ads">
-							<ad unit-id="adunit-21a62c6200a47124"></ad>
+					<view class="onclick">人气：{{detail.onclick}}℃</view>
+				</view>
+				<swiper indicator-dots="true" autoplay="true">
+					<swiper-item wx:for="{{contentArrayAd}}" wx:for-index="i" wx:for-item="item">
+							<navigator target="miniProgram" open-type="navigate" app-id="{{item.alt}}" extra-data="" version="release"
+									path="/pages{{item.url}}" hover-class="navigator-hover">
+									<image class="img" src="{{item.picurl}}" mode='scaleToFill' />
+							</navigator>
+					</swiper-item>
+				</swiper>
+			</view>
+    </swiper-item>
+		<swiper-item>
+      <view class="wrap two">
+				<view style="height:{{CustomBar}}px;">
+					<view class="tips" style="padding-top:{{titleTop}}px;">
+						<icon bindtap="_home" class="icon icon-home"></icon>
+						<icon bindtap="_back" class="icon icon-back"></icon>
+						<text class="anim">支持左右滑动哦,试试看！</text>
 					</view>
-			</view>
-			<view wx:if="{{i == 40}}">
-					<view class="ads">
-							<ad unit-id="adunit-21a62c6200a47124"></ad>
+				</view>
+				<view class="ad"><ad unit-id="adunit-ec965aa6605af62d"></ad></view>
+				<view class="h1">
+					<view bindtap="copyTBL" data-text="{{detail.title}}">{{detail.title}}</view>
+					<view bindtap="copyTBL" data-text="{{detail.ftitle}}">{{detail.ftitle}}</view>
+					<view class="tip">点击文字即可复制哦</view>
+					<view class="bottom">
+						<button open-type='share' class='icon icon-share' plain="true">分享</button>
+						<block wx:if="{{favaFlag}}">
+							<view bindtap='favaDisFn' class="icon icon-close_light ed">移除收藏</view>
+						</block>
+						<block wx:else>
+							<view bindtap='favaFn' class="icon icon-favor_light">收藏</view>
+						</block>
+						<view bindtap='diggtopFn' class="icon icon-appreciate_light {{diggFlag ? 'ed' :''}}">点赞({{detail.diggtop}})</view>
 					</view>
+				</view>
+				<view class="shares">
+					<view>{{detail.newstime}}</view>
+					<navigator url="../list/list?state=2&userid={{userid}}&username={{username}}">
+						<view class="username">发布者：<span>{{detail.username}}</span></view>
+					</navigator>
+					<view class="onclick">人气：{{detail.onclick}}℃</view>
+				</view>
+				<swiper indicator-dots="true" autoplay="true">
+					<swiper-item wx:for="{{contentArrayAd}}" wx:for-index="i" wx:for-item="item">
+							<navigator target="miniProgram" open-type="navigate" app-id="{{item.alt}}" extra-data="" version="release"
+									path="/pages{{item.url}}" hover-class="navigator-hover">
+									<image class="img" src="{{item.picurl}}" mode='scaleToFill' />
+							</navigator>
+					</swiper-item>
+				</swiper>
 			</view>
-			<view wx:if="{{i == 60}}">
-					<view class="ads">
-							<ad unit-id="adunit-21a62c6200a47124"></ad>
-					</view>
-			</view>
-			<view wx:if="{{i == 80}}">
-					<view class="ads">
-							<ad unit-id="adunit-21a62c6200a47124"></ad>
-					</view>
-			</view>
-			<view bindtap='copyTBL' data-text="{{item.title}}" class="node-item">
-				<view class='t'>{{item.title}}</view>
-			</view>
-		</block>
-	</view>
-</view>
+    </swiper-item>
+</swiper>

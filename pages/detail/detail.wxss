@@ -1,6 +1,46 @@
-Page{background:#f4f4f4;}
-.h1{padding:60rpx 60rpx 20rpx 60rpx;text-align: center;background: #fffff0;margin:40rpx;border-radius: 20rpx;line-height: 100rpx;font-size: 50rpx;color: orangered;border:1rpx solid #f60;box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);}
-.tip{font-size: 30rpx;color: #999;}
+.wrap{
+	width: 100%;
+	height:100%;
+	background: #fff;
+}
+.first{
+	background-image: linear-gradient(60deg, #a8edea 0%, #fed6e3 100%);
+}
+.two{
+	background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.icon-back,.icon-home{
+	font-weight: 100;
+	font-size: 36rpx;
+	margin-right:30rpx;
+}
+.icon-home{
+	left:40rpx
+}
+
+
+.tips{
+	margin-left:50rpx;
+}
+
+.anim {
+    animation: jiggle 2s ease-in infinite;
+}
+@keyframes jiggle {
+    48%, 62% {
+				color:#e14fad;
+    }
+    50% {
+        color:#f9d423;
+    }
+		80% {
+        color:#ff7eb3;
+    }
+}
+
+.h1{padding:40rpx;text-align: center;background: #fff;margin:60rpx 40rpx;border-radius: 20rpx;line-height: 70rpx;font-size: 40rpx;color: orangered;box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);}
+.tip{font-size: 30rpx;color: #999;background:#fff;}
 .h2{text-align: center;padding:40rpx 0 30rpx 0;display: flex;justify-content: space-between;margin:0 30rpx;}
 .node-list{
     display: flex;
@@ -25,12 +65,12 @@ swiper{height:300rpx;font-weight: 300}
 .swiper_item{text-align:center;font-size:50rpx;line-height:140rpx;height:300rpx;}
 swiper .img{height:300rpx;width:100%}
 .shares{
-	margin:20rpx 40rpx 40rpx 40rpx;
+	margin:50rpx 40rpx;
 	align-items: center;
 	display: flex;
 	justify-content: space-around;
 }
-button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #666;line-height: 2.8!important;}
+button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #666;line-height: 2.0!important;}
 .bottom{
 	color: #666;
 	display: flex;
@@ -41,4 +81,4 @@ button[plain]{ border:0;padding:0;margin:0;font-size:36rpx;color: #666;line-heig
 	margin-left:10rpx;
 }
 
-.bottom .ed{color: #f60;}
+.bottom .ed{color: #e14fad;}

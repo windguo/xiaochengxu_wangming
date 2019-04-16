@@ -1,5 +1,5 @@
 {
-	"usingComponents": {
-		"header": "/component/header/header"
-	}
+	"usingComponents": {},
+	"navigationBarTextStyle": "black",
+	"disableScroll":true
 }

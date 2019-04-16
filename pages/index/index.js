@@ -200,7 +200,7 @@ Page({
 		// 获取推荐网名
 		this.getRandData();
 		// 获取统计数据
-		this.getTotal();
+		this.selectComponent('#textComponent')._reloadData();
 	},
 	searchPage:function(){
 		wx.navigateTo({

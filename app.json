@@ -23,6 +23,7 @@
 		"pages/my/publish/publish",
 		"pages/publish/wangming/index",
 		"pages/member/index/index",
+		"pages/fuhao/index",
 		"component/text/text"
 	],
 	"window": {

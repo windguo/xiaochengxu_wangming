@@ -9,17 +9,13 @@ Page({
 			back: true
 		},
 		onclick:0,
-		height: app.globalData.height * 2 + 25,
+		titleTop: app.globalData.StatusBar+6,
 		StatusBar: app.globalData.StatusBar,
-		CustomBar: app.globalData.CustomBar,
+		CustomBar: app.globalData.CustomBar + 10,
 		id:null,
 		classid:null,
-		title:'加载中...',
-		ftitle: '',
-		username:'',
-		userid:'',
-		newstime:'',
 		diggFlag:false,
+		diggtop:'',
 		favaFlag: false,
 		contentArray:[],
 		autoplay: true,
@@ -29,12 +25,24 @@ Page({
 		rnd: '',
 		usernames: '',
 		favaid:null,
-		state:''
+		state:'',
+		height: '',
+		index: 1,
+		autoplay: false,
+		countDownNum: '3000',
+		detail: {},
+		id: ''
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
+	_back: function () {
+		wx.navigateBack({
+			delta: 1,
+		})
+	},
+	_home: function () {
+		wx.switchTab({
+			url: '/pages/index/index'
+		})
+	},
 	onLoad: function (options) {
 		COMMONFN.checkIsLogin();
 		console.log('__options__',options);
@@ -42,6 +50,7 @@ Page({
 			title: '加载中'
 		});
 		this.setData({
+			height: wx.getSystemInfoSync().windowHeight,
 			id:options.id,
 			classid:options.classid,
 			state: options.state || '',
@@ -50,7 +59,7 @@ Page({
 			usernames: wx.getStorageSync('storageLoginedUsernames'),
 			userid: wx.getStorageSync('storageLoginedUserId')
 		})
-		this.getContent(options.id);
+		this.getContent(options.classid,options.id);
 		this.ad();
 		this.check_fava_article();
 		if (this.data.state == 3){
@@ -103,7 +112,8 @@ Page({
 			success: (json) => {
 				console.log('---======diggtopFn------', json.data);
 				_this.setData({
-					diggFlag:true
+					diggFlag:true,
+					diggtop: Number(_this.data.diggtop) + 1
 				})
 				wx.showModal({
 					content: json.data.message,
@@ -187,33 +197,43 @@ Page({
 			}
 		})
 	},
-	getContent:function(id){
+	getContent: function (classid,id) {
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=content&classid=' + classid + '&id=' + id)
 		let that = this;
-		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=content&id=' + id);
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=content&id=' + id,
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=content&classid=' + classid+'&id=' + id,
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {
-				console.log('__json__', json.data.result);
+				console.log('json.data.result---', json.data.result)
 				that.setData({
-					title:json.data.result.title,
-					onclick: json.data.result.onclick,
-					ftitle: json.data.result.ftitle,
-					username:json.data.result.username,
-					userid:json.data.result.userid,
-					newstime:json.data.result.newstime
+					detail: json.data.result
 				});
-				this.getList();
-				wx.hideLoading();
+				that.getList();
+				wx.hideLoading()
 			}
 		})
 	},
+	onSlideChangeEnd: function (e) {
+		var that = this;
+		that.setData({
+			index: e.detail.current + 1,
+			diggFlag:false,
+			favaFlag:false
+		});
+		console.log('this.data.detail.randId--', this.data.detail.randId);
+		console.log('heightheight',this.data.height);
+		// wx.redirectTo({
+		// 	url: '../detail/detail?id=' + that.data.detail.randId + '&classid=' + that.data.detail.classid
+		// })
+		this.getContent(this.data.classid,this.data.detail.randId);
+		this.ad();
+	},
 	getList:function(){
-		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/creat/?getJson=c&keyword=' + this.data.title + '&ftitle=' + this.data.ftitle);
+		console.log('https://www.yishuzi.com.cn/wangming_xiaochengxu_api/creat/?getJson=c&keyword=' + this.data.detail.title + '&ftitle=' + this.data.detail.ftitle);
 		let that = this;
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/creat/?getJson=c&keyword=' + encodeURIComponent(this.data.title) + '&ftitle=' + encodeURIComponent(this.data.ftitle),
+			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/creat/?getJson=c&keyword=' + encodeURIComponent(this.data.detail.title) + '&ftitle=' + encodeURIComponent(this.data.detail.ftitle),
 			method: 'GET',
 			dataType: 'json',
 			header:{
@@ -264,16 +284,13 @@ Page({
 			}
 		})
 	},
-	/**
-	 * 用户点击右上角分享
-	 */
 	onShareAppMessage: function (res) {
 		if (res.from === 'button') {
 			// 来自页面内转发按钮
 			console.log(res.target)
 		}
 		return {
-			title: this.data.title + ' ' + this.data.ftitle + '的网名分享给你咯，你也来选个吧。',
+			title: this.data.detail.title + ' ' + this.data.detail.ftitle + '的网名分享给你咯，你也来选个吧。',
 			url:'../detail/detail?id=' + this.data.id,
 			success: (res) => {
 				wx.showToast({

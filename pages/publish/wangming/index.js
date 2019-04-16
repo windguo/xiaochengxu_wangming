@@ -182,14 +182,7 @@ Page({
 					}else{
 						wx.showModal({
 							title: '提示',
-							content: json.data.message,
-							success: function (res) {
-								if (!res.cancel) {
-									wx.redirectTo({
-										url: '../../loginout/loginout'
-									});
-								}
-							}
+							content: json.data.message
 						})
 					}
 				}

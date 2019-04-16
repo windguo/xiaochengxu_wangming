@@ -28,36 +28,7 @@ Component({
 		}
 	},
 	attached: function () {
-		let that = this;
-		//统计数据
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				this.setData({
-					snewstime: json.data.result.newstime,
-					todayUpdate: json.data.result.toady,
-					total: json.data.result.count,
-					todayRegister: json.data.result.todayRegister,
-					members: json.data.result.members
-				})
-			}
-		});
-		wx.request({
-			url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=member_new&pageSize=1',
-			method: 'GET',
-			dataType: 'json',
-			success: (json) => {
-				console.log('---======------', json.data.result[0])
-				that.setData({
-					registertime: json.data.result[0].registertime,
-					userid: json.data.result[0].userid,
-					username: json.data.result[0].username
-				})
-				wx.hideLoading()
-			}
-		})
+		this._reloadData();
 	},
 	methods: {
 		// 返回上一页面
@@ -68,6 +39,38 @@ Component({
 		_backhome() {
 			wx.switchTab({
 				url: '/pages/index/index',
+			})
+		},
+		_reloadData(){
+			let that = this;
+			//统计数据
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=total',
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					this.setData({
+						snewstime: json.data.result.newstime,
+						todayUpdate: json.data.result.toady,
+						total: json.data.result.count,
+						todayRegister: json.data.result.todayRegister,
+						members: json.data.result.members
+					})
+				}
+			});
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/wangming_xiaochengxu_api/?getJson=member_new&pageSize=1',
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					console.log('---======------', json.data.result[0])
+					that.setData({
+						registertime: json.data.result[0].registertime,
+						userid: json.data.result[0].userid,
+						username: json.data.result[0].username
+					})
+					wx.hideLoading()
+				}
 			})
 		}
 	}

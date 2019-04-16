@@ -1,0 +1,13 @@
+.cont{
+	margin:40rpx;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: first baseline;
+}
+.t{
+	flex: 1;
+	margin:30rpx;
+	font-size: 36rpx;
+	text-overflow: ellipsis;
+  white-space: nowrap;
+}

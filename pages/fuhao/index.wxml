@@ -1,0 +1,11 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class='container'>
+	<view class="tip">点击符号即可复制成功哦！</view>
+	<view class="cont">
+		<block wx:for="{{arr}}" wx:for-index="i" wx:for-item="item">
+			<view bindtap="copyTBL" data-text="{{item}}" class="t">{{item}}</view>
+		</block>
+	</view>
+</view>

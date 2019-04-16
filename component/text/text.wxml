@@ -9,7 +9,7 @@
 				</swiper-item>
 				<swiper-item>
 					<view class="icon icon-profile second">
-						今日新增<span>{{todayRegister}}</span>个会员,共有<span>{{members}}</span>个
+						今日新增<span>{{todayRegister}}</span>名会员,共有<span>{{members}}</span>名。
 					</view>
 				</swiper-item>
 				<swiper-item>
